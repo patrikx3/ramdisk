@@ -1,0 +1,6 @@
+/build
+/node_modules
+/*.log
+/*.iws
+/generated
+/ramdisk-settings.json

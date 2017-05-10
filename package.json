@@ -1,0 +1,53 @@
+{
+    "name": "p3x-ramdisk",
+    "version": "1.0.125-126",
+    "description": "RAM disk persistent with Systemd timer, service and suspend",
+    "main": "Gruntfile.js",
+    "corifeus": {
+        "time": "5/8/2017, 12:44:47 AM",
+        "time-stamp": 1494197087015,
+        "prefix": "p3x-",
+        "type": "p3x"
+    },
+    "bin": {
+        "p3x-ramdisk": "bin/p3x-ramdisk.js"
+    },
+    "scripts": {
+        "test": "grunt "
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/patrikx3/ramdisk.git"
+    },
+    "keywords": [
+        "linux",
+        "systemd",
+        "ramdisk",
+        "ram",
+        "disk",
+        "suspend",
+        "timer",
+        "service",
+        "unix",
+        "bsd",
+        "osx"
+    ],
+    "author": "Patrik Laszlo <alabard@gmail.com>",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/patrikx3/ramdisk/issues"
+    },
+    "homepage": "https://patrikx3.github.io/ramdisk/",
+    "dependencies": {
+        "clear": "^0.0.1",
+        "commander": "^2.9.0",
+        "corifeus-utils": "^1.1.100-140",
+        "userid": "^0.2.0"
+    },
+    "engines": {
+        "node": ">=7.8.0"
+    },
+    "devDependencies": {
+        "corifeus-builder": "^1.7.504-501"
+    }
+}

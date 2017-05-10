@@ -1,0 +1,14 @@
+[Unit]
+Description=P3X ramdisk persistent
+
+[Service]
+Type=oneshot
+RemainAfterExit=true
+ExecStartPre={{ script }}/p3x-ramdisk.sh boot load
+ExecStop={{ script }}/p3x-ramdisk.sh shutdown save
+TimeoutStopSec=infinity
+TimeoutStartSec=infinity
+TimeoutSec=infinity
+
+[Install]
+WantedBy=multi-user.target

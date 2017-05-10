@@ -1,0 +1,11 @@
+[Unit]
+Description=P3X ramdisk persistent timer
+After=p3x-ramdisk.target
+
+[Timer]
+OnCalendar=*:0/{{ timer }}
+OnBootSec=0min
+#OnUnitActiveSec={{ timer }}min
+
+[Install]
+WantedBy=timers.target

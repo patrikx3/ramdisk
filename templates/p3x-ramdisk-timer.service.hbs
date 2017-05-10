@@ -1,0 +1,13 @@
+[Unit]
+Description=P3X ramdisk persistent timer
+After=p3x-ramdisk.target
+
+[Service]
+Type=oneshot
+ExecStart={{ script }}/p3x-ramdisk.sh timer save
+TimeoutStopSec=infinity
+TimeoutStartSec=infinity
+TimeoutSec=infinity
+
+[Install]
+WantedBy=multi-user.target
