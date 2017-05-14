@@ -4,6 +4,7 @@ const utils = require('corifeus-utils');
 const fsx = require('fs-extra');
 const _ = require('lodash');
 const clear = require('clear');
+const ms = require('ms');
 
 const settingsFile = `/etc/p3x-ramdisk.json`;
 
@@ -57,9 +58,12 @@ sudo systemctl status p3x-ramdisk-timer.timer
     await utils.childProcess.exec(commandExec, true)
 }
 
-const watch = async() => {
+const watch = async(options) => {
     const settings = getSettings();
-    return new Promise(async (resolve) => {
+    options.watch = Number(options.watch) || 1000;
+    const watch = ms(options.watch, { long: true });
+    const timer = ms(settings.timer * 1000 * 60, { long: true });
+    return new Promise(async () => {
         const show = async () => {
 
             const df = await utils.childProcess.exec(`df -h | grep -e ${settings.home}/${settings.rampath} -e Size`);
@@ -100,10 +104,10 @@ Save: ${saveLog.toString().trim().split('\n').join('  ')}
 
 ${log.stdout.trim()}
 
-${new Date().toLocaleString()} | Update every ${settings.timer} minutes`);
+${new Date().toLocaleString()} | Persistence ${timer} | Watch ${watch}`);
         };
         show();
-        setInterval(show, 1000)
+        setInterval(show, options.watch)
     })
 }
 
