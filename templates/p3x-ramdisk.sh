@@ -249,7 +249,7 @@ function internal_save() {
     TO=$2
     log "save $FROM to $TO"
     cd $FROM
-    rsync --rsync-path="nice -n19 ionice -c3 rsync" -atvq --delete . $TO   >  /dev/null  #$PERSISTENCE_LOG_SAVE
+    rsync --rsync-path="nice -n19 ionice -c3 rsync" -aq --delete . $TO   >  /dev/null  #$PERSISTENCE_LOG_SAVE
     log "saved"
   #  truncate $PERSISTENCE_LOG_SAVE
 }
@@ -274,7 +274,8 @@ function save() {
         rm $PERSISTENCE_LOCK
         log "save done" true
 
-        fix_permissions
+        # cannot use it at save, it will change modification
+        #fix_permissions
         truncate $PERSISTENCE_LOG
 
         timer_end "update-at-save.log"
