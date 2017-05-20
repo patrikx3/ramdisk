@@ -297,7 +297,7 @@ patrikx3@workstation ~/ramdisk-persistent/current/.p3x-ramdisk-link $
 [//]: #@corifeus-footer
 
 ---
-[**P3X-RAMDISK**](https://patrikx3.github.com/ramdisk) Build v1.0.157-33
+[**P3X-RAMDISK**](https://pages.corifeus.tk/ramdisk) Build v1.0.158-34
 
 [Corifeus](http://www.corifeus.tk) by [Patrik Laszlo](http://patrikx3.tk)
 
