@@ -36,6 +36,20 @@ https://nodejs.org/en/download/package-manager/
                         
 [//]: #@corifeus-header:end
 
+## IntelliJ Speed
+Based on:
+http://sheroz.com/pages/blog/improving-development-performance-moving-intellij-idea-cache-ramdisk.html  
+  
+```text
+After all these tricks I tried to open my current project with IntelliJ IDEA 12 … 
+
+Wow!!! It is fantastic! Works like a … sword!!! 
+
+Why sword?! I don’t know exactly. May be because of Darcula theme. This is just first thought what came to my mind seeing the overall results. 
+
+The Intellij IDEA 12 now works as a lightsaber sword, as a weapon of a Jedi Knight, which you can trust in Java world! 
+```
+
 * Requires tmpfs, bash, fstab, rsync, memory :)
   * Usually, all requirements of every Unix flavor are installed by default
   
@@ -47,10 +61,12 @@ https://nodejs.org/en/download/package-manager/
 * Linux, Unix, BSD, macOS
   * Should might need some tuning, but the functions are there, I just only tested in Linux. 
 
+## Intel Optane
+I think my ramdisk is faster. :) Ciao!!!
+
 # Use case
 Speed up IntelliJ and development Node. (Tons of files.)  
 The result is that the development is many folds faster. No waiting at all.
-Even Chrome is a thunder, including Thunderbird, Firefox, Npm and Yarn.
 
 # Install
 ```text
@@ -69,7 +85,7 @@ Install a p3x-ramdisk
     -p, --persistent [path]  The path of the ram persistent, default /home/$USERNAME/ramdisk-persistent
     -g, --gid [group]        The gid, it you omit it is the current user
     -t, --timer [minutes]    The timer in minutes, minimum about 10 minutes, Default is 20 minutes, the best
-    -s, --size [megabytes]   Ramdisk in size of megabytes, default is 10240 megabytes
+    -s, --size [megabytes]   Ramdisk in size of megabytes, default is 4096 megabytes
 ```
 
 # IMPORTANT
@@ -91,10 +107,10 @@ sudo npm install -g p3x-ramdisk
 
 # install
 # if you need less/more memory, add -s 1024 or even more, 10GB is good :)
-sudo p3x-ramdisk install -s 6144 $USERNAME    
+sudo p3x-ramdisk install $USERNAME    
 
 # Get the output, add to /etc/fstab
-echo "tmpfs   /home/patrikx3/ramdisk tmpfs   gid=10000,uid=10000,size=6144M   0 0" | sudo tee -a /etc/fstab
+echo "tmpfs   /home/patrikx3/ramdisk tmpfs   gid=10000,uid=10000,size=4096M   0 0" | sudo tee -a /etc/fstab
 sudo mount -a
 # you should verify the ramdisk is existing now, you might have to reboot
 # on linux it can show your settings, like below:
@@ -139,7 +155,7 @@ ls -all /home/$USERNAME/ramdisk-persistent/previous/
 # no linking is. to test it, you might not need it.
 ```
 
-## Linkin in /home
+## Linkin' in /home
 
 ```bash
 ### //LINKING - NOT REQUIRED
@@ -148,19 +164,13 @@ sudo p3x-ramdisk stop
 mkdir -p /home/$USERNAME/ramdisk-persistent/current/.p3x-ramdisk-link
 
 cp -avr /home/$USERNAME/.IntelliJIdea2017.1 /home/$USERNAME/ramdisk-persistent/current/.p3x-ramdisk-link
-cp -avr /home/$USERNAME/Projects /home/$USERNAME/ramdisk-persistent/current/.p3x-ramdisk-link
-cp -avr /home/$USERNAME/.cache /home/$USERNAME/ramdisk-persistent/current/.p3x-ramdisk-link
 
 # backup
 mkdir -p /home/$USERNAME/backup
 mv /home/$USERNAME/.IntelliJIdea2017.1 /home/username/backup/ 
-mv /home/$USERNAME/Projects /home/username/backup/
-mv /home/$USERNAME/.cache /home/username/backup/
 
 # need to delete the originals, since they become symlinks
 rm -rf /home/$USERNAME/.IntelliJIdea2017.1
-rm -rf /home/$USERNAME/Projects
-rm -rf /home/$USERNAME/.cache
 
 sudo p3x-ramdisk start
 ### //LINKING:END
@@ -190,7 +200,7 @@ Settings: {
   "uidNumber": 10000,
   "gid": "patrikx3",
   "timer": 20,
-  "size": "6144",
+  "size": "4096",
   "home": "/home/patrikx3",
   "script": "/home/patrikx3/.p3x-ramdisk"
 }    
@@ -199,7 +209,7 @@ Final commands:
 --------------------------
 1) You only have to do it once, if you haven't done it before
 
-echo "tmpfs   /home/patrikx3/ramdisk tmpfs   gid=10000,uid=10000,size=6144M   0 0" | sudo tee -a /etc/fstab
+echo "tmpfs   /home/patrikx3/ramdisk tmpfs   gid=10000,uid=10000,size=4096M   0 0" | sudo tee -a /etc/fstab
 sudo mount -a
 
 --------------------------
@@ -223,22 +233,23 @@ p3x-ramdisk watch
 
 ```
 Filesystem                                                 Size  Used Avail Use% Mounted on
-tmpfs                                                      6,0G  1,8G  4,3G  29% /home/patrikx3/ramdisk
+tmpfs                                                      4,0G  2,0G  2,1G  50% /home/patrikx3/ramdisk
 
-total        used        free      shared  buff/cache   available
-Mem:            15G        2,6G        7,3G        2,0G        5,6G         10G
-Swap:           15G          0B         15G                         
+              total        used        free      shared  buff/cache   available
+Mem:            31G        3,3G         18G        2,0G        9,8G         25G
+Swap:          8,0G          0B        8,0G
                          
-Load: 2017-05-08 00:28:20  2017-05-08 00:28:41  0 minutes 21 seconds
-Save: 2017-05-08 00:27:55  2017-05-08 00:27:58  0 minutes 3 seconds
+                         
+Load: 2017-05-27 09:01:49  2017-05-27 09:01:56  0 minutes 7 seconds
+Save: 2017-05-27 09:20:00  2017-05-27 09:20:16  0 minutes 16 seconds
 
-2017-05-08 00:30:08: terminal install
-2017-05-08 00:30:08: terminal copy
-2017-05-08 00:30:08: terminal suspend
-2017-05-08 00:30:08: terminal reload services
-2017-05-08 00:30:08: terminal install done
+2017-05-27 09:20:00: timer save, ramdisk to current
+2017-05-27 09:20:00: timer save /home/patrikx3/ramdisk/persistence/content to /home/patrikx3/ramdisk-persistent/current
+2017-05-27 09:20:16: timer saved
+2017-05-27 09:20:16: timer save done
+2017-05-27 09:20:16: timer 0 minutes 16 seconds
 
-5/8/2017, 12:30:41 AM | Update every 20 minutes
+5/27/2017, 9:24:45 AM | Persistence 20 minutes | Watch 1 second
 ```
 
 # LOGS
@@ -285,19 +296,14 @@ patrikx3@workstation ~/ramdisk-persistent/current/.p3x-ramdisk-link $ ll
 total 32
 drwxr-xr-x  8 patrikx3 patrikx3 4096 May  7 13:04 ./
 drwxr-xr-x  3 patrikx3 patrikx3 4096 May  7 13:02 ../
-drwx------ 22 patrikx3 patrikx3 4096 May  7 10:03 .cache/
 drwxr-xr-x  4 patrikx3 patrikx3 4096 Apr 25 17:51 .IntelliJIdea2017.1/
-drwxr-xr-x  4 patrikx3 patrikx3 4096 Apr 25 13:10 .mozilla/
-drwxr-xr-x  2 patrikx3 patrikx3 4096 May  6 17:37 .npm/
-drwxr-xr-x  4 patrikx3 patrikx3 4096 May  6 20:00 Projects/
-drwx------  4 patrikx3 patrikx3 4096 Apr 25 13:57 .thunderbird/
 patrikx3@workstation ~/ramdisk-persistent/current/.p3x-ramdisk-link $ 
 ```
 
 [//]: #@corifeus-footer
 
 ---
-[**P3X-RAMDISK**](https://pages.corifeus.tk/ramdisk) Build v1.0.161-38
+[**P3X-RAMDISK**](https://pages.corifeus.tk/ramdisk) Build v1.0.175-56
 
 [Corifeus](http://www.corifeus.tk) by [Patrik Laszlo](http://patrikx3.tk)
 

@@ -8,6 +8,15 @@ const ms = require('ms');
 
 const settingsFile = `/etc/p3x-ramdisk.json`;
 
+const defaults = {
+    ramdisk: {
+        size: 4096,
+    },
+    timer: {
+        save: 20,
+    }
+};
+
 const requireRoot = () => {
     if (process.getuid && process.getuid() === 0) {
         return true;
@@ -150,8 +159,8 @@ const install = async (uid, options) => {
         uid : uid,
         uidNumber: userid.uid(uid),
         gid : options.gid || uid,
-        timer : options.timer || 20,
-        size : options.size || 10240,
+        timer : options.timer || defaults.timer.save,
+        size : options.size || defaults.size.ramdisk,
         home : homedir,
     }
 
@@ -220,3 +229,4 @@ module.exports.link = link;
 module.exports.status = status;
 
 module.exports.requireRoot  = requireRoot;
+module.exports.defaults = defaults;

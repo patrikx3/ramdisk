@@ -1,4 +1,10 @@
 #!/usr/bin/env node
+if (!require('fs').existsSync(`${__dirname}/../node_modules`)) {
+    require('child_process').execSync(`cd ${__dirname}/..; yarn install`, {
+        stdio: 'inherit'
+    });
+}
+
 const commander = require('commander');
 const utils = require('corifeus-utils');
 const pkg = require('../package.json');
