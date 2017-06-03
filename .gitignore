@@ -3,6 +3,7 @@
 /*.log
 /generated
 /ramdisk-settings.json
+/package-lock.json
 
 /yarn.lock
 
