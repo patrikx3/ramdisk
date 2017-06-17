@@ -25,7 +25,7 @@ Besides, when I can support, please note, I cannot support old versions, only th
    
 ### Built on Node 
 ``` 
-v8.1.0
+v8.1.2
 ```   
    
 The ```async``` and ```await``` keywords are required.
@@ -308,7 +308,7 @@ patrikx3@workstation ~/ramdisk-persistent/current/.p3x-ramdisk-link $
 [//]: #@corifeus-footer
 
 ---
-[**P3X-RAMDISK**](https://pages.corifeus.tk/ramdisk) Build v1.0.189-12
+[**P3X-RAMDISK**](https://pages.corifeus.tk/ramdisk) Build v1.0.191-17
 
 [Corifeus](http://www.corifeus.tk) by [Patrik Laszlo](http://patrikx3.tk)
 
