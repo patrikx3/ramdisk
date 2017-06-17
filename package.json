@@ -41,13 +41,13 @@
     "dependencies": {
         "clear": "^0.0.1",
         "commander": "^2.9.0",
-        "corifeus-utils": "^1.1.328-18",
+        "corifeus-utils": "^1.1.332-26",
         "userid": "^0.3.1"
     },
     "engines": {
         "node": ">=7.8.0"
     },
     "devDependencies": {
-        "corifeus-builder": "^1.7.660-16"
+        "corifeus-builder": "^1.7.661-19"
     }
 }
