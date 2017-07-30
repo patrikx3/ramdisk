@@ -3,12 +3,5 @@
 /*.log
 /generated
 /ramdisk-settings.json
-/package-lock.json
-
-/yarn.lock
-
-
-
 .idea/workspace.xml
 .idea/tasks.xml
-
