@@ -20,7 +20,7 @@ Install a p3x-ramdisk
         try {
             await ramdisk.install(uid, options);
         } catch(e) {
-            console.error(e.message);
+            console.error(e);
             process.exit(1);
         }
     })

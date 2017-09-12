@@ -10,7 +10,7 @@ const settingsFile = `/etc/p3x-ramdisk.json`;
 
 const defaults = {
     ramdisk: {
-        size: 4096,
+        size: 2048,
     },
     timer: {
         save: 20,
@@ -153,6 +153,8 @@ const install = async (uid, options) => {
 
     const homedir = (await utils.childProcess.exec(`sudo -H -u ${uid} -i eval 'echo $HOME'`)).stdout.trim();
 
+    options = options || {};
+
     const generateOptions = {
         rampath: options.rampath || 'ramdisk',
         persistent : options.persistent || 'ramdisk-persistent',
@@ -160,10 +162,9 @@ const install = async (uid, options) => {
         uidNumber: userid.uid(uid),
         gid : options.gid || uid,
         timer : options.timer || defaults.timer.save,
-        size : options.size || defaults.size.ramdisk,
+        size : options.size || defaults.ramdisk.size,
         home : homedir,
     }
-
 
     const generatedDir = getGeneratedDir(homedir)
     await fsx.emptyDir(generatedDir);
