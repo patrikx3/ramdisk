@@ -160,6 +160,7 @@ const install = async (uid, options) => {
         persistent : options.persistent || 'ramdisk-persistent',
         uid : uid,
         uidNumber: userid.uid(uid),
+        gidNumber: userid.gid(uid),
         gid : options.gid || uid,
         timer : options.timer || defaults.timer.save,
         size : options.size || defaults.ramdisk.size,
@@ -176,20 +177,20 @@ const install = async (uid, options) => {
 
     _.templateSettings.interpolate = /{{([\s\S]+?)}}/g;
 
-    await utils.fs.ensureFile(settingsFile, JSON.stringify(generateOptions, null, 4))
+    await utils.fs.ensureFile(settingsFile, JSON.stringify(generateOptions, null, 4), true )
 
     await files.forEachAsync(async (file) => {
         const generatedFile = path.basename(file, '.hbs');
         const buffer = await mz.fs.readFile(`${origin}/${file}`);
         const string = buffer.toString();
         const generatedString = _.template(string)(generateOptions);
-        await utils.fs.ensureFile(`${generatedDir}/${generatedFile}`, generatedString);
+        await utils.fs.ensureFile(`${generatedDir}/${generatedFile}`, generatedString, true);
     })
 
 
     const program = `${path.resolve(generateOptions.script)}/p3x-ramdisk.sh`;
 
-    let command = `chown -R ${generateOptions.uid}:${generateOptions.gid} ${generatedDir}  
+    let command = `chown -R ${generateOptions.uidNumber}:${generateOptions.gidNumber} ${generatedDir}  
 chmod u+x ${program}    
 ${program} install    
 `;

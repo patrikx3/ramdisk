@@ -5,7 +5,8 @@ ME="$(basename "$(test -L "$0" && readlink "$0" || echo "$0")")"
 
 P3X_UID={{ uid }}
 P3X_UID_NUMBER={{ uidNumber }}
-P3X_GUID={{ gid }}
+P3X_GID={{ gid }}
+P3X_GID_NUMBER={{ gidNumber }}
 ROOT={{ home }}
 PERSISTENCE=$ROOT/{{ persistent }}
 RAMDISK=$ROOT/{{ rampath }}
@@ -96,7 +97,7 @@ elif [ "\$1" == "post" ]; then
   # Do the thing you want after resume here, e.g.:
     sudo -u $P3X_UID printf "\n\$LOG_DATA On again" >> $PERSISTENCE_LOG
 fi
-chown $P3X_UID:$P3X_GUID $PERSISTENCE_LOG
+chown $P3X_UID_NUMBER:$P3X_GID_NUMBER $PERSISTENCE_LOG
 EOT
 
     log "reload services"
@@ -164,10 +165,10 @@ function stop() {
 
 
 function fix_permissions() {
-    chown $P3X_UID:$P3X_GUID -R $RAMDISK
-    chown $P3X_UID:$P3X_GUID -R $PERSISTENCE
-#    chown $P3X_UID:$P3X_GUID $PERSISTENCE_LOG_LOAD
-#    chown $P3X_UID:$P3X_GUID $PERSISTENCE_LOG_SAVE
+    chown $P3X_UID_NUMBER:$P3X_GID_NUMBER -R $RAMDISK
+    chown $P3X_UID_NUMBER:$P3X_GID_NUMBER -R $PERSISTENCE
+#    chown $P3X_UID_NUMBER:$P3X_GID_NUMBER $PERSISTENCE_LOG_LOAD
+#    chown $P3X_UID_NUMBER:$P3X_GID_NUMBER $PERSISTENCE_LOG_SAVE
 }
 
 function log() {
@@ -195,7 +196,7 @@ function timer_end() {
     echo `date '+%Y-%m-%d %H:%M:%S'` >> $PERSISTENCE_UPDATED_AT
     DURATION_STRING="$(($DURATION / 60)) minutes $(($DURATION % 60)) seconds"
     echo $DURATION_STRING >> $PERSISTENCE_UPDATED_AT
-    chown $P3X_UID:$P3X_UID $PERSISTENCE_UPDATED_AT
+    chown $P3X_UID_NUMBER:$P3X_GID_NUMBER $PERSISTENCE_UPDATED_AT
     log "$DURATION_STRING"
 }
 
@@ -231,7 +232,7 @@ function load() {
 
  #   truncate $PERSISTENCE_LOG_LOAD
 
- #   chown $P3X_UID:$P3X_GUID $PERSISTENCE_LOG_LOAD
+ #   chown $P3X_UID_NUMBER:$P3X_GID_NUMBER $PERSISTENCE_LOG_LOAD
 
     fix_permissions
     timer_end "update-at-load.log"
