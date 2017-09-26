@@ -31,6 +31,14 @@ https://nodejs.org/en/download/package-manager/
                         
 [//]: #@corifeus-header:end
 
+
+# Install
+
+```bash
+sudo npm install -g p3x-ramdisk --unsafe-perm=true --allow-root
+```
+
+
 ## IntelliJ Speed
 Based on:
 http://sheroz.com/pages/blog/improving-development-performance-moving-intellij-idea-cache-ramdisk.html  
@@ -299,7 +307,7 @@ patrikx3@workstation ~/ramdisk-persistent/current/.p3x-ramdisk-link $
 
 ---
 
-[**P3X-RAMDISK**](https://pages.corifeus.com/ramdisk) Build v1.0.316-135
+[**P3X-RAMDISK**](https://pages.corifeus.com/ramdisk) Build v1.0.318-137
 
 [Corifeus](http://www.corifeus.com) by [Patrik Laszlo](http://patrikx3.com)
 
