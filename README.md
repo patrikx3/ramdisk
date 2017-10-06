@@ -1,6 +1,6 @@
 [//]: #@corifeus-header
 
-  [![Build Status](https://travis-ci.org/patrikx3/ramdisk.svg?branch=master)](https://travis-ci.org/patrikx3/ramdisk)  [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/patrikx3/ramdisk/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/patrikx3/ramdisk/?branch=master)  [![Code Coverage](https://scrutinizer-ci.com/g/patrikx3/ramdisk/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/patrikx3/ramdisk/?branch=master) 
+  [![Build Status](https://travis-ci.org/patrikx3/.svg?branch=master)](https://travis-ci.org/patrikx3/)  [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/patrikx3//badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/patrikx3//?branch=master)  [![Code Coverage](https://scrutinizer-ci.com/g/patrikx3//badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/patrikx3//?branch=master) 
 
   
 [![NPM](https://nodei.co/npm/p3x-ramdisk.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/p3x-ramdisk/)
@@ -307,7 +307,7 @@ patrikx3@workstation ~/ramdisk-persistent/current/.p3x-ramdisk-link $
 
 ---
 
-[**P3X-RAMDISK**](https://pages.corifeus.com/ramdisk) Build v1.0.337-144
+[**P3X-RAMDISK**](https://pages.corifeus.com/ramdisk) Build v1.0.338-145
 
 [Corifeus](http://www.corifeus.com) by [Patrik Laszlo](http://patrikx3.com)
 
