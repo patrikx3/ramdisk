@@ -18,7 +18,7 @@ This is an open source project. Just code.
    
 ### Built on Node 
 ``` 
-v8.8.0
+v8.8.1
 ```   
    
 The ```async``` and ```await``` keywords are required.
@@ -307,7 +307,7 @@ patrikx3@workstation ~/ramdisk-persistent/current/.p3x-ramdisk-link $
 
 ---
 
-[**P3X-RAMDISK**](https://pages.corifeus.com/ramdisk) Build v1.0.372-170 
+[**P3X-RAMDISK**](https://pages.corifeus.com/ramdisk) Build v1.0.376-171 
 
 [![Like Corifeus @ Facebook](https://img.shields.io/badge/LIKE-Corifeus-3b5998.svg)](https://www.facebook.com/corifeus.software) 
  
