@@ -7,7 +7,7 @@
 ---
 
  
-# RAM disk persistent with Systemd timer, service and suspend v1.0.460-207  
+# RAM disk persistent with Systemd timer, service and suspend v1.0.467-212  
 
 This is an open source project. Just code. If you like this code, please add a star in GitHub and you really like, you can donate as well. Thanks you so much!
 
@@ -18,7 +18,7 @@ This is an open source project. Just code. If you like this code, please add a s
    
 ### Built on Node 
 ``` 
-v9.2.0
+v9.2.1
 ```   
    
 The ```async``` and ```await``` keywords are required.
@@ -106,7 +106,7 @@ You might have it in the previous save. It is possible to enable trash bin, but 
 # double persistence (current, previouse, saves every 20 minutes)
 # load on boot, plus at shutdown and suspend it saves
 
-sudo npm install -g p3x-ramdisk
+sudo npm install -g p3x-ramdisk --unsafe-perm=true --allow-root
 
 # install
 # if you need less/more memory, add -s 1024 or even more, 10GB is good :)
@@ -166,7 +166,7 @@ p3x-ramdisk save
 sudo p3x-ramdisk stop
 mkdir -p /home/$USERNAME/ramdisk-persistent/current/.p3x-ramdisk-link
 
-cp -avr /home/$USERNAME/.IntelliJIdea2017.1 /home/$USERNAME/ramdisk-persistent/current/.p3x-ramdisk-link
+cp -avr /home/$USERNAME/.IntelliJIdea2017.3 /home/$USERNAME/ramdisk-persistent/current/.p3x-ramdisk-link
 
 # backup
 mkdir -p /home/$USERNAME/backup
@@ -307,7 +307,7 @@ patrikx3@workstation ~/ramdisk-persistent/current/.p3x-ramdisk-link $
 
 ---
 
-[**P3X-RAMDISK**](https://pages.corifeus.com/ramdisk) Build v1.0.460-207 
+[**P3X-RAMDISK**](https://pages.corifeus.com/ramdisk) Build v1.0.467-212 
 
 [![Like Corifeus @ Facebook](https://img.shields.io/badge/LIKE-Corifeus-3b5998.svg)](https://www.facebook.com/corifeus.software) [![Donate for Corifeus / P3X](https://img.shields.io/badge/Donate-Corifeus-003087.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=LFRV89WPRMMVE&lc=HU&item_name=Patrik%20Laszlo&item_number=patrikx3&currency_code=HUF&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted)  [![Contact Corifeus / P3X](https://img.shields.io/badge/Contact-P3X-ff9900.svg)](https://www.patrikx3.com/en/front/contact) 
 
@@ -315,3 +315,4 @@ patrikx3@workstation ~/ramdisk-persistent/current/.p3x-ramdisk-link $
  
 
 [//]: #@corifeus-footer:end
+
