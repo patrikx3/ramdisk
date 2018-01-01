@@ -49,6 +49,6 @@
         "node": ">=8.9.0"
     },
     "devDependencies": {
-        "corifeus-builder": "^1.7.1103-260"
+        "corifeus-builder": "^1.7.1110-261"
     }
 }
