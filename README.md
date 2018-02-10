@@ -7,7 +7,7 @@
 ---
 
  
-# RAM disk persistent with Systemd timer, service and suspend v1.0.555-249  
+# RAM disk persistent with Systemd timer, service and suspend v1.0.563-256  
 
 This is an open source project. Just code. If you like this code, please add a star in GitHub and you really like, you can donate as well. Thanks you so much!
 
@@ -78,6 +78,7 @@ Speed up IntelliJ and development Node. (Tons of files.)
 The result is that the development is many folds faster. No waiting at all.
 
 # Install
+
 ```text
 patrikx3@workstation ~ $ p3x-ramdisk install --help
 
@@ -98,6 +99,7 @@ Install a p3x-ramdisk
 ```
 
 # IMPORTANT
+
 Trash is disabled in GNOME with p3x-ramdisk. It will ask for confirm to delete data.
 You might have it in the previous save. It is possible to enable trash bin, but for me is not important now, so I disabled, memory is not cheap.
 
@@ -167,7 +169,8 @@ ls -all /home/$USERNAME/ramdisk-persistent/previous/
 ## Linkin' in /home
 
 ```bash
-### //LINKING - NOT REQUIRED
+### //LINKING:START
+# LINKING - IS NOT REQUIRED, but is good as a sword :)
 p3x-ramdisk save
 sudo p3x-ramdisk stop
 mkdir -p /home/$USERNAME/ramdisk-persistent/current/.p3x-ramdisk-link
@@ -176,10 +179,10 @@ cp -avr /home/$USERNAME/.IntelliJIdea2017.3 /home/$USERNAME/ramdisk-persistent/c
 
 # backup
 mkdir -p /home/$USERNAME/backup
-mv /home/$USERNAME/.IntelliJIdea2017.1 /home/username/backup/ 
+mv /home/$USERNAME/.IntelliJIdea2017.3 /home/username/backup/ 
 
 # need to delete the originals, since they become symlinks
-rm -rf /home/$USERNAME/.IntelliJIdea2017.1
+rm -rf /home/$USERNAME/.IntelliJIdea2017.3
 
 sudo p3x-ramdisk start
 ### //LINKING:END
@@ -275,7 +278,7 @@ Save: 2017-05-27 09:20:00  2017-05-27 09:20:16  0 minutes 16 seconds
 2017-05-06 02:57:37: boot load /home/patrikx3/ramdisk-persistent/current to /home/patrikx3/ramdisk/persistence/content
 2017-05-06 02:57:47: boot loaded
 2017-05-06 02:57:47: boot link
-2017-05-06 02:57:47: boot link /home/patrikx3/ramdisk/persistence/content/.IntelliJIdea2017.1 to /home/patrikx3/.IntelliJIdea2017.1
+2017-05-06 02:57:47: boot link /home/patrikx3/ramdisk/persistence/content/.IntelliJIdea2017.3 to /home/patrikx3/.IntelliJIdea2017.3
 2017-05-06 02:57:47: boot link /home/patrikx3/ramdisk/persistence/content/Projects to /home/patrikx3/Projects
 2017-05-06 02:57:47: boot link done
 2017-05-06 02:57:47: boot 0 minutes 10 seconds
@@ -305,7 +308,7 @@ patrikx3@workstation ~/ramdisk-persistent/current/.p3x-ramdisk-link $ ll
 total 32
 drwxr-xr-x  8 patrikx3 patrikx3 4096 May  7 13:04 ./
 drwxr-xr-x  3 patrikx3 patrikx3 4096 May  7 13:02 ../
-drwxr-xr-x  4 patrikx3 patrikx3 4096 Apr 25 17:51 .IntelliJIdea2017.1/
+drwxr-xr-x  4 patrikx3 patrikx3 4096 Apr 25 17:51 .IntelliJIdea2017.3/
 patrikx3@workstation ~/ramdisk-persistent/current/.p3x-ramdisk-link $ 
 ```
 
@@ -313,7 +316,7 @@ patrikx3@workstation ~/ramdisk-persistent/current/.p3x-ramdisk-link $
 
 ---
 
-[**P3X-RAMDISK**](https://pages.corifeus.com/ramdisk) Build v1.0.555-249 
+[**P3X-RAMDISK**](https://pages.corifeus.com/ramdisk) Build v1.0.563-256 
 
 [![Like Corifeus @ Facebook](https://img.shields.io/badge/LIKE-Corifeus-3b5998.svg)](https://www.facebook.com/corifeus.software) [![Donate for Corifeus / P3X](https://img.shields.io/badge/Donate-Corifeus-003087.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=LFRV89WPRMMVE&lc=HU&item_name=Patrik%20Laszlo&item_number=patrikx3&currency_code=HUF&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted)  [![Contact Corifeus / P3X](https://img.shields.io/badge/Contact-P3X-ff9900.svg)](https://www.patrikx3.com/en/front/contact) 
 
