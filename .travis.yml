@@ -1,20 +1,21 @@
 language: node_js
 sudo: required
 node_js:
-  - "node"
+- node
 env:
+  matrix:
   - CXX=g++-4.8
-
+  global:
+    secure: q32FNSpXe2rl6b0oxHhtTA30mcW4kYkEBDSAVZAzr3nSDTwB1uBIPLESUlTgN7ldUZKmyRLTFynixHgUL/OoQdKWkGEFVw1+VuQmmzxXg6EyCeb1l8b9rmfjQjhKLyeDCaZKlbcQO2nOp2skz6J1EaePczHwR044rWq+2D7Sds0y9w3/zgJll8OMJXbf9MLCGIt9XA8hwOyNLf7zrarIOMSBVk3cfnkYXda6T3sHz1uDb8/KhRZdsoEqSYsMkSOQNfAn9ReGpfshUmEODVy/0Yo0UWf+YjvNFM36IJcDJmpzBVNw+CTpcY9K1Bx9G6yGOxKRIoZHqirpfm8JK+o9TjPCtiqxFDmwWRbzvHB+n4HHIbgMqUQ1DJLJtAYgLPkuOCS4Sez4sk2N6cYHspPMRrIvcoT6GV5P/F/nlReMx36rewIFGGZYIY2V4MXTFk8RZzxTwpZ3nM7crj3+b7ruIhsAPfKNQu14xHMBwCKQit3x1RLTt9kO2ldUcdmULs2q57/kiDFMprNrqMmR4sv7CxLMLazQQDW1YmqcisQ+2ZUeXgh2jUcMOhaRIl6ErO8EG7z2GqXWbxqTozggSQVyFmlZmkGNq+3bLOfKhCp48GRU3Vd2Dh0WoupxezoI7qgJQEuLdKYHdRiuJWWuzZrd8BCjiUcBMsQVlo+EsF/UrQs=
 addons:
   apt:
     sources:
-      - ubuntu-toolchain-r-test
+    - ubuntu-toolchain-r-test
     packages:
-      - dbus
-      - gcc-4.8
-      - g++-4.8
-      - libglib2.0-dev
-
+    - dbus
+    - gcc-4.8
+    - g++-4.8
+    - libglib2.0-dev
 before_script:
-  - npm install -g node-gyp
-  - npm install grunt-cli -g
+- npm install -g node-gyp
+- npm install grunt-cli -g
