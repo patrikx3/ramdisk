@@ -46,13 +46,17 @@ It will never change anymore, but sometimes I can delete accidentally my data fr
 ```text
 /home/user/ramdisk/persistence
 ```   
-
 now it is called  
 ```text
 /home/user/ramdisk/.p3x-ramdisk-persistence
+```  
+(hidden by default)
+and if you accidentally deleted, it will be auto-recreate
+(this is always visible - a symlink)  
+```text
+/home/user/ramdisk/p3x-persistence
 ```
-(hidden by default).
-
+  
 If you are linked to IntelliJ for example, you have to recreate the symlink in your home.  
 For example, migration looks like this:
 ```bash
