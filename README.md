@@ -180,7 +180,8 @@ sudo p3x-ramdisk stop
 # STARTUP THE RAMDISK PERSISTENT
 sudo p3x-ramdisk start
 
-# you can work like here (this a symlink)
+# you can work like here (this a symlink, so you can't accidentally delete
+# so next time boot, it will re-create the symlink ...)
 # /home/$USERNAME/ramdisk/p3x-persistence
 
 # SOME DEBUG
