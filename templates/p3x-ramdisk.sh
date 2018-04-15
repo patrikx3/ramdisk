@@ -32,6 +32,7 @@ PERSISTENCE_TRASH=$PERSISTENCE/$TRASH_NAME
 
 RAMDISK_TRASH=$RAMDISK/$TRASH_NAME
 RAMDISK_PERSISTENCE=$RAMDISK/.p3x-ramdisk-persistence
+RAMDISK_PERSISTENCE_LINKED=$RAMDISK/p3x-persistence
 RAMDISK_CONTENT=$RAMDISK_PERSISTENCE/content
 RAMDISK_CONTENT_LINK=$RAMDISK_CONTENT/.p3x-ramdisk-link
 RAMDISK_LOCK=$RAMDISK_PERSISTENCE/ramdisk.lock
@@ -123,6 +124,8 @@ function start() {
     systemctl enable p3x-ramdisk-timer.timer
     systemctl start p3x-ramdisk
     systemctl start p3x-ramdisk-timer.timer
+    rm -rf $RAMDISK_PERSISTENCE_LINKED || true
+    sudo -u $P3X_UID ln -s $RAMDISK_CONTENT $RAMDISK_PERSISTENCE_LINKED
 }
 
 function stop() {

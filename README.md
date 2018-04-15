@@ -58,6 +58,7 @@ For example, migration looks like this:
 ```bash
 # exit intellij if you have linked
 sudo p3x-ramdisk stop
+rm -rf ~/ramdisk/persistence
 sudo npm i -g p3x-ramdisk
 sudo p3x-ramdisk install $USERNAME
 sudo p3x-ramdisk start
@@ -79,7 +80,6 @@ If you are sure it is a link, you can recreate like:
 ```bash
 rm ~/.IntelliJIdea2018.1
 ln -s ~/ramdisk/.p3x-ramdisk-persistence/content/.p3x-ramdisk-link/.IntelliJIdea2018.1/ ~
-rm -rf ~/ramdisk/persistence
 ```
 
 Now you are safe.
@@ -180,8 +180,8 @@ sudo p3x-ramdisk stop
 # STARTUP THE RAMDISK PERSISTENT
 sudo p3x-ramdisk start
 
-# you can work like here
-# /home/$USERNAME/ramdisk/.p3x-ramdik-persistence/content
+# you can work like here (this a symlink)
+# /home/$USERNAME/ramdisk/p3x-persistence
 
 # SOME DEBUG
 p3x-ramdisk watch 
