@@ -6,7 +6,7 @@
 
 
  
-# RAM disk persistent with Systemd timer, service and suspend v1.1.15-320  
+# 💾 RAM disk persistent with Systemd timer, service and suspend v1.1.15-320  
 
 This is an open-source project. Star this repository if you like it, or even donate!  Thank you so much! :)
 
