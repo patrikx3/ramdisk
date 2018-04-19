@@ -43,6 +43,12 @@ SUSPEND_SCRIPT=$SUSPEND_ROOT/p3x-ramdisk.sh
 
 SYSTEMD=/etc/systemd/system
 
+function generate_persistence_link() {
+  log "generate_persistance_link remove linked persistence"
+  rm -rf $RAMDISK_PERSISTENCE_LINKED || true
+  ln -s $RAMDISK_CONTENT $RAMDISK_PERSISTENCE_LINKED
+  chown -h $P3X_UID_NUMBER:$P3X_GID_NUMBER $RAMDISK_PERSISTENCE_LINKED
+}
 
 function require_sudo() {
 
@@ -124,8 +130,6 @@ function start() {
     systemctl enable p3x-ramdisk-timer.timer
     systemctl start p3x-ramdisk
     systemctl start p3x-ramdisk-timer.timer
-    rm -rf $RAMDISK_PERSISTENCE_LINKED || true
-    sudo -u $P3X_UID ln -s $RAMDISK_CONTENT $RAMDISK_PERSISTENCE_LINKED
 }
 
 function stop() {
@@ -232,12 +236,12 @@ function load() {
         ln -s $PERSISTENCE_TRASH $RAMDISK
     fi
 
-
  #   truncate $PERSISTENCE_LOG_LOAD
 
  #   chown $P3X_UID_NUMBER:$P3X_GID_NUMBER $PERSISTENCE_LOG_LOAD
 
     fix_permissions
+    generate_persistence_link
     timer_end "update-at-load.log"
     echo `date '+%Y-%m-%d %H:%M:%S'` > $RAMDISK_LOCK
 
