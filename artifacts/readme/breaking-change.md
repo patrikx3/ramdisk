@@ -32,7 +32,7 @@ For example, migration looks like this:
 sudo p3x-ramdisk stop
 rm -rf ~/ramdisk/persistence
 sudo npm i -g p3x-ramdisk
-sudo p3x-ramdisk install $USERNAME
+sudo p3x-ramdisk install $USER
 sudo p3x-ramdisk start
 # so you are already linked into p3x-ramdisk, here 
 # (if you are not linked, do not delete and
@@ -62,12 +62,12 @@ Now you are safe.
 
 ---
 
-[**P3X-RAMDISK**](https://pages.corifeus.com/ramdisk) Build v1.1.36-343 
+[**P3X-RAMDISK**](https://pages.corifeus.com/ramdisk) Build v1.1.37-345 
 
 [![Like Corifeus @ Facebook](https://img.shields.io/badge/LIKE-Corifeus-3b5998.svg)](https://www.facebook.com/corifeus.software) [![Donate for Corifeus / P3X](https://img.shields.io/badge/Donate-Corifeus-003087.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=QZVM4V6HVZJW6)  [![Contact Corifeus / P3X](https://img.shields.io/badge/Contact-P3X-ff9900.svg)](https://www.patrikx3.com/en/front/contact) 
 
 
-## Sponsors
+## P3X Sponsors
 
 [IntelliJ - The most intelligent Java IDE](https://www.jetbrains.com)
   

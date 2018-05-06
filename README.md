@@ -6,7 +6,7 @@
 
 
  
-# 💾 RAM disk persistent with Systemd timer, service and suspend v1.1.36-343  
+# 💾 RAM disk persistent with Systemd timer, service and suspend v1.1.37-345  
 
 This is an open-source project. Star this repository if you like it, or even donate!  Thank you so much! :)
 
@@ -84,7 +84,7 @@ The result is that the development is many folds faster. No waiting at all.
 
 ## Warning
 
-Do not use the ```$USERNAME``` variable, use the actual username, like ```p3x-robot```.
+Do not use the ```$USER``` variable, use the actual username, like ```p3x-robot```.
 
 ## So actual install
 
@@ -100,8 +100,8 @@ Install a p3x-ramdisk
   Options:
 
     -h, --help               output usage information
-    -r, --rampath [path]     The path of the ram disk, default /home/$USERNAME/ramdisk
-    -p, --persistent [path]  The path of the ram persistent, default /home/$USERNAME/ramdisk-persistent
+    -r, --rampath [path]     The path of the ram disk, default /home/$USER/ramdisk
+    -p, --persistent [path]  The path of the ram persistent, default /home/$USER/ramdisk-persistent
     -g, --gid [group]        The gid, it you omit it is the current user
     -t, --timer [minutes]    The timer in minutes, minimum about 10 minutes, Default is 20 minutes, the best
     -s, --size [megabytes]   Ramdisk in size of megabytes, default is 4096 megabytes
@@ -127,7 +127,7 @@ sudo npm install -g p3x-ramdisk --unsafe-perm=true --allow-root
 
 # install
 # if you need less/more memory, add -s 1024 or even more, 10GB is good :)
-sudo p3x-ramdisk install $USERNAME    
+sudo p3x-ramdisk install $USER    
 
 # Get the output, add to /etc/fstab
 echo "tmpfs   /home/patrikx3/ramdisk tmpfs   gid=10000,uid=10000,size=4096M   0 0" | sudo tee -a /etc/fstab
@@ -145,7 +145,7 @@ sudo p3x-ramdisk start
 
 # you can work like here (this a symlink, so you can't accidentally delete
 # so next time boot, it will re-create the symlink ...)
-# /home/$USERNAME/ramdisk/p3x-persistence
+# /home/$USER/ramdisk/p3x-persistence
 
 # SOME DEBUG
 p3x-ramdisk watch 
@@ -164,14 +164,14 @@ p3x-ramdisk save
 sudo p3x-ramdisk stop 
 
 # your duplicate copies are
-ls -all /home/$USERNAME/ramdisk-persistent/current/
-ls -all /home/$USERNAME/ramdisk-persistent/previous/
+ls -all /home/$USER/ramdisk-persistent/current/
+ls -all /home/$USER/ramdisk-persistent/previous/
 
 # you are done
 # the default use case is to speed up working with IntelliJ and my projects to ramdisk
 # if you just want persistent folder and that's all
 # there is a special folder, .p3x-ramdisk-link
-# everything there is linked into /home/$USERNAME
+# everything there is linked into /home/$USER
 # if there is nothing in .p3x-ramdisk-link
 # no linking is. to test it, you might not need it.
 ```
@@ -183,16 +183,16 @@ ls -all /home/$USERNAME/ramdisk-persistent/previous/
 # LINKING - IS NOT REQUIRED, but is good as a sword :)
 p3x-ramdisk save
 sudo p3x-ramdisk stop
-mkdir -p /home/$USERNAME/ramdisk-persistent/current/.p3x-ramdisk-link
+mkdir -p /home/$USER/ramdisk-persistent/current/.p3x-ramdisk-link
 
-cp -avr /home/$USERNAME/.IntelliJIdea2017.3 /home/$USERNAME/ramdisk-persistent/current/.p3x-ramdisk-link
+cp -avr /home/$USER/.IntelliJIdea2017.3 /home/$USER/ramdisk-persistent/current/.p3x-ramdisk-link
 
 # backup
-mkdir -p /home/$USERNAME/backup
-mv /home/$USERNAME/.IntelliJIdea2017.3 /home/username/backup/ 
+mkdir -p /home/$USER/backup
+mv /home/$USER/.IntelliJIdea2017.3 /home/username/backup/ 
 
 # need to delete the originals, since they become symlinks
-rm -rf /home/$USERNAME/.IntelliJIdea2017.3
+rm -rf /home/$USER/.IntelliJIdea2017.3
 
 sudo p3x-ramdisk start
 ### //LINKING:END
@@ -326,12 +326,12 @@ patrikx3@workstation ~/ramdisk-persistent/current/.p3x-ramdisk-link $
 
 ---
 
-[**P3X-RAMDISK**](https://pages.corifeus.com/ramdisk) Build v1.1.36-343 
+[**P3X-RAMDISK**](https://pages.corifeus.com/ramdisk) Build v1.1.37-345 
 
 [![Like Corifeus @ Facebook](https://img.shields.io/badge/LIKE-Corifeus-3b5998.svg)](https://www.facebook.com/corifeus.software) [![Donate for Corifeus / P3X](https://img.shields.io/badge/Donate-Corifeus-003087.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=QZVM4V6HVZJW6)  [![Contact Corifeus / P3X](https://img.shields.io/badge/Contact-P3X-ff9900.svg)](https://www.patrikx3.com/en/front/contact) 
 
 
-## Sponsors
+## P3X Sponsors
 
 [IntelliJ - The most intelligent Java IDE](https://www.jetbrains.com)
   
