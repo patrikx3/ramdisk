@@ -1,6 +1,6 @@
 {
     "name": "p3x-ramdisk",
-    "version": "1.1.51-351",
+    "version": "1.1.54-352",
     "description": "💾 RAM disk persistent with Systemd timer, service and suspend",
     "main": "Gruntfile.js",
     "corifeus": {
