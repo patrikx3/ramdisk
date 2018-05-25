@@ -6,7 +6,7 @@
 
 
  
-# 💾 RAM disk persistent with Systemd timer, service and suspend v1.1.68-360  
+# 💾 RAM disk persistent with Systemd timer, service and suspend v1.1.69-361  
 
 This is an open-source project. Star this repository if you like it, or even donate!  Thank you so much! :)
 
@@ -14,6 +14,7 @@ I run my own server with dynamic IP address so it may happen that the server can
 
 All my domains (patrikx3.com and corifeus.com) could have errors since I am developing in my free time. However, it is usually stable.
 
+**Bugs are evident.™️**
 
 ### Node Version Requirement 
 ``` 
@@ -326,7 +327,7 @@ patrikx3@workstation ~/ramdisk-persistent/current/.p3x-ramdisk-link $
 
 ---
 
-[**P3X-RAMDISK**](https://pages.corifeus.com/ramdisk) Build v1.1.68-360 
+[**P3X-RAMDISK**](https://pages.corifeus.com/ramdisk) Build v1.1.69-361 
 
 [![Like Corifeus @ Facebook](https://img.shields.io/badge/LIKE-Corifeus-3b5998.svg)](https://www.facebook.com/corifeus.software) [![Donate for Corifeus / P3X](https://img.shields.io/badge/Donate-Corifeus-003087.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=QZVM4V6HVZJW6)  [![Contact Corifeus / P3X](https://img.shields.io/badge/Contact-P3X-ff9900.svg)](https://www.patrikx3.com/en/front/contact) 
 
