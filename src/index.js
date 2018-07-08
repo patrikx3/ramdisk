@@ -199,7 +199,7 @@ ${program} install
     await utils.childProcess.exec(command, true)
 
     console.log(`
-Settings: ${JSON.stringify(generateOptions, null, 2)}    
+Settings: ${JSON.stringify(generateOptions, null, 4)}    
     
 Final commands:
 --------------------------
