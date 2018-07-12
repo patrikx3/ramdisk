@@ -2,17 +2,17 @@
   
 [![NPM](https://nodei.co/npm/p3x-ramdisk.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/p3x-ramdisk/)
 
-  [![Build Status](https://travis-ci.org/patrikx3/ramdisk.svg?branch=master)](https://travis-ci.org/patrikx3/ramdisk)  [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/patrikx3/ramdisk/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/patrikx3/ramdisk/?branch=master)  [![Code Coverage](https://scrutinizer-ci.com/g/patrikx3/ramdisk/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/patrikx3/ramdisk/?branch=master) 
+  [![Build Status](https://travis-ci.org/patrikx3/ramdisk.svg?branch=master)](https://travis-ci.org/patrikx3/ramdisk) 
 
 
  
-# 💾 RAM disk persistent with Systemd timer, service and suspend v1.1.77-368  
+# 💾 RAM disk persistent with Systemd timer, service and suspend v1.1.79-372  
 
-This is an open-source project. Star this repository if you like it, or even donate!  Thank you so much! :)
+This is an open-source project. Star this repository, if you like it, or even donate! Thank you so much! :)
 
-I run my own server with dynamic IP address so it may happen that the server can not be reachable for about max 15 minutes due to the dynamic DNS. The server may also be unreachable when I backup the SSD with Clonzilla (very rarely) or an electrical issue (but this should not happen again). When the server is down, please hang on for 15-30 minutes and the server will be back up.
+I run my own server with dynamic IP address, so, it may happen, that the server can not be reachable for about max 15 minutes, due to nature of the dynamic DNS. The server may also be unreachable, when I backup the SSD with Clonzilla (very rarely) or an electrical issue (but this should not happen again). When the server is down, please hang on for 15-30 minutes and the server will be back up.
 
-All my domains (patrikx3.com and corifeus.com) could have errors since I am developing in my free time. However, it is usually stable.
+All my domains (patrikx3.com and corifeus.com) could have errors, since I am developing in my free time. However, it is usually stable.
 
 **Bugs are evident™ - MATRIX️**
 
@@ -327,7 +327,7 @@ patrikx3@workstation ~/ramdisk-persistent/current/.p3x-ramdisk-link $
 
 ---
 
-[**P3X-RAMDISK**](https://pages.corifeus.com/ramdisk) Build v1.1.77-368 
+[**P3X-RAMDISK**](https://pages.corifeus.com/ramdisk) Build v1.1.79-372 
 
 [![Like Corifeus @ Facebook](https://img.shields.io/badge/LIKE-Corifeus-3b5998.svg)](https://www.facebook.com/corifeus.software) [![Donate for Corifeus / P3X](https://img.shields.io/badge/Donate-Corifeus-003087.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=QZVM4V6HVZJW6)  [![Contact Corifeus / P3X](https://img.shields.io/badge/Contact-P3X-ff9900.svg)](https://www.patrikx3.com/en/front/contact) 
 
