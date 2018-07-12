@@ -53,6 +53,6 @@
         "node": ">=10.5.0"
     },
     "devDependencies": {
-        "corifeus-builder": "^1.8.37-440"
+        "corifeus-builder": "^1.8.40-440"
     }
 }
