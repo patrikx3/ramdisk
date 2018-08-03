@@ -3,10 +3,13 @@
 [![NPM](https://nodei.co/npm/p3x-ramdisk.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/p3x-ramdisk/)
 
   [![Build Status](https://travis-ci.org/patrikx3/ramdisk.svg?branch=master)](https://travis-ci.org/patrikx3/ramdisk) 
+[![Uptime Robot ratio (30 days)](https://img.shields.io/uptimerobot/ratio/m780749701-41bcade28c1ea8154eda7cca.svg)](https://uptimerobot.patrikx3.com/)
+
+ 
 
 
  
-# 💾 RAM disk persistent with Systemd timer, service and suspend v1.1.79-372  
+# 💾 RAM disk persistent with Systemd timer, service and suspend v1.1.83-375  
 
 This is an open-source project. Star this repository, if you like it, or even donate! Thank you so much! :)
 
@@ -23,7 +26,7 @@ All my domains (patrikx3.com and corifeus.com) could have errors, since I am dev
    
 ### Built on Node 
 ``` 
-v10.6.0
+v10.8.0
 ```   
    
 The ```async``` and ```await``` keywords are required.
@@ -327,7 +330,7 @@ patrikx3@workstation ~/ramdisk-persistent/current/.p3x-ramdisk-link $
 
 ---
 
-[**P3X-RAMDISK**](https://pages.corifeus.com/ramdisk) Build v1.1.79-372 
+[**P3X-RAMDISK**](https://pages.corifeus.com/ramdisk) Build v1.1.83-375 
 
 [![Like Corifeus @ Facebook](https://img.shields.io/badge/LIKE-Corifeus-3b5998.svg)](https://www.facebook.com/corifeus.software) [![Donate for Corifeus / P3X](https://img.shields.io/badge/Donate-Corifeus-003087.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=QZVM4V6HVZJW6)  [![Contact Corifeus / P3X](https://img.shields.io/badge/Contact-P3X-ff9900.svg)](https://www.patrikx3.com/en/front/contact) 
 
