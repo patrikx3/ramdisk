@@ -1,6 +1,6 @@
 {
     "name": "p3x-ramdisk",
-    "version": "2018.12.28-2",
+    "version": "2018.12.30-2",
     "description": "💾 RAM disk persistent with Systemd timer, service and suspend",
     "main": "Gruntfile.js",
     "corifeus": {
@@ -45,7 +45,7 @@
     "dependencies": {
         "clear": "^0.1.0",
         "commander": "^2.19.0",
-        "corifeus-utils": "^2018.12.28-1",
+        "corifeus-utils": "^2018.12.30-2",
         "lodash": "^4.17.11",
         "userid": "^0.3.1"
     },
@@ -53,6 +53,6 @@
         "node": ">=10.13.0"
     },
     "devDependencies": {
-        "corifeus-builder": "^2018.12.28-1"
+        "corifeus-builder": "^2018.12.30-3"
     }
 }
