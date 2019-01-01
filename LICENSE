@@ -1,11 +1,11 @@
 
-@license p3x-ramdisk v2018.12.30-2
+@license p3x-ramdisk v2019.1.1-2
   
 💾 RAM disk persistent with Systemd timer, service and suspend
 
 https://pages.corifeus.com/ramdisk
 
-Copyright (c) 2018 Patrik Laszlo / P3X / Corifeus and contributors.
+Copyright (c) 2019 Patrik Laszlo / P3X / Corifeus and contributors.
 
 MIT License
 
