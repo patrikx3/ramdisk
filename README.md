@@ -11,7 +11,7 @@
 
 
  
-# 💾 RAM disk persistent with Systemd timer, service and suspend v2019.1.8-6  
+# 💾 RAM disk persistent with Systemd timer, service and suspend v2019.1.9-2  
 
   
 🙏 This is an open-source project. Star this repository, if you like it, or even donate to maintain the servers and the development. Thank you so much!
@@ -334,16 +334,16 @@ patrikx3@workstation ~/ramdisk-persistent/current/.p3x-ramdisk-link $
 
 ---
 
-[**P3X-RAMDISK**](https://pages.corifeus.com/ramdisk) Build v2019.1.8-6 
+[**P3X-RAMDISK**](https://pages.corifeus.com/ramdisk) Build v2019.1.9-2 
 
 [![Like Corifeus @ Facebook](https://img.shields.io/badge/LIKE-Corifeus-3b5998.svg)](https://www.facebook.com/corifeus.software) [![Donate for Corifeus / P3X](https://img.shields.io/badge/Donate-Corifeus-003087.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=QZVM4V6HVZJW6)  [![Contact Corifeus / P3X](https://img.shields.io/badge/Contact-P3X-ff9900.svg)](https://www.patrikx3.com/en/front/contact) 
 
 
 ## P3X Sponsors
 
-[IntelliJ - The most intelligent Java IDE](https://www.jetbrains.com)
+[IntelliJ - The most intelligent Java IDE](https://www.jetbrains.com/?from=patrikx3)
   
-[![JetBrains](https://cdn.corifeus.com/assets/svg/jetbrains-logo.svg)](https://www.jetbrains.com/) [![NoSQLBooster](https://cdn.corifeus.com/assets/png/nosqlbooster-70x70.png)](https://www.nosqlbooster.com/)
+[![JetBrains](https://cdn.corifeus.com/assets/svg/jetbrains-logo.svg)](https://www.jetbrains.com/?from=patrikx3) [![NoSQLBooster](https://cdn.corifeus.com/assets/png/nosqlbooster-70x70.png)](https://www.nosqlbooster.com/)
 
 [The Smartest IDE for MongoDB](https://www.nosqlbooster.com)
   
