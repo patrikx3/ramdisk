@@ -11,7 +11,7 @@
 
 
  
-# 💾 RAM disk persistent with Systemd timer, service and suspend v2019.1.9-2  
+# 💾 RAM disk persistent with Systemd timer, service and suspend v2019.1.19-2  
 
   
 🙏 This is an open-source project. Star this repository, if you like it, or even donate to maintain the servers and the development. Thank you so much!
@@ -30,7 +30,7 @@ All my domains (patrikx3.com and corifeus.com) could have errors, since I am dev
    
 ### Built on Node 
 ``` 
-v11.6.0
+v11.7.0
 ```   
    
 The ```async``` and ```await``` keywords are required.
@@ -193,14 +193,14 @@ p3x-ramdisk save
 sudo p3x-ramdisk stop
 mkdir -p /home/$USER/ramdisk-persistent/current/.p3x-ramdisk-link
 
-cp -avr /home/$USER/.IntelliJIdea2017.3 /home/$USER/ramdisk-persistent/current/.p3x-ramdisk-link
+cp -avr /home/$USER/.IntelliJIdea2018.3 /home/$USER/ramdisk-persistent/current/.p3x-ramdisk-link
 
 # backup
 mkdir -p /home/$USER/backup
-mv /home/$USER/.IntelliJIdea2017.3 /home/username/backup/ 
+mv /home/$USER/.IntelliJIdea2018.3 /home/username/backup/ 
 
 # need to delete the originals, since they become symlinks
-rm -rf /home/$USER/.IntelliJIdea2017.3
+rm -rf /home/$USER/.IntelliJIdea2018.3
 
 sudo p3x-ramdisk start
 ### //LINKING:END
@@ -212,15 +212,15 @@ sudo p3x-ramdisk start
   
 ```text
 patrikx3@laptop:~/ramdisk/.p3x-ramdik-persistence/content/.p3x-ramdisk-link/Projects/patrikx3/ramdisk$ sudo p3x-ramdisk install patrikx3 -s 6144
-2017-05-08 00:30:08: terminal install
+2018-05-08 00:30:08: terminal install
 
-2017-05-08 00:30:08: terminal copy
+2018-05-08 00:30:08: terminal copy
 
-2017-05-08 00:30:08: terminal suspend
+2018-05-08 00:30:08: terminal suspend
 
-2017-05-08 00:30:08: terminal reload services
+2018-05-08 00:30:08: terminal reload services
 
-2017-05-08 00:30:08: terminal install done
+2018-05-08 00:30:08: terminal install done
 
 
 Settings: {
@@ -261,7 +261,7 @@ patrikx3@laptop:~/ramdisk/.p3x-ramdik-persistence/content/.p3x-ramdisk-link/Proj
 p3x-ramdisk watch
 ```
 
-```
+```text
 Filesystem                                                 Size  Used Avail Use% Mounted on
 tmpfs                                                      4,0G  2,0G  2,1G  50% /home/patrikx3/ramdisk
 
@@ -270,16 +270,16 @@ Mem:            31G        3,3G         18G        2,0G        9,8G         25G
 Swap:          8,0G          0B        8,0G
                          
                          
-Load: 2017-05-27 09:01:49  2017-05-27 09:01:56  0 minutes 7 seconds
-Save: 2017-05-27 09:20:00  2017-05-27 09:20:16  0 minutes 16 seconds
+Load: 2018-05-27 09:01:49  2018-05-27 09:01:56  0 minutes 7 seconds
+Save: 2018-05-27 09:20:00  2018-05-27 09:20:16  0 minutes 16 seconds
 
-2017-05-27 09:20:00: timer save, ramdisk to current
-2017-05-27 09:20:00: timer save /home/patrikx3/ramdisk/.p3x-ramdik-persistence/content to /home/patrikx3/ramdisk-persistent/current
-2017-05-27 09:20:16: timer saved
-2017-05-27 09:20:16: timer save done
-2017-05-27 09:20:16: timer 0 minutes 16 seconds
+2018-05-27 09:20:00: timer save, ramdisk to current
+2018-05-27 09:20:00: timer save /home/patrikx3/ramdisk/.p3x-ramdik-persistence/content to /home/patrikx3/ramdisk-persistent/current
+2018-05-27 09:20:16: timer saved
+2018-05-27 09:20:16: timer save done
+2018-05-27 09:20:16: timer 0 minutes 16 seconds
 
-5/27/2017, 9:24:45 AM | Persistence 20 minutes | Watch 1 second
+5/27/2018, 9:24:45 AM | Persistence 20 minutes | Watch 1 second
 ```
 
 # LOGS
@@ -292,31 +292,31 @@ Save: 2017-05-27 09:20:00  2017-05-27 09:20:16  0 minutes 16 seconds
 ## LOG info
 
 ```text
-2017-05-06 02:57:37: boot loading
-2017-05-06 02:57:37: boot load /home/patrikx3/ramdisk-persistent/current to /home/patrikx3/ramdisk/.p3x-ramdik-persistence/content
-2017-05-06 02:57:47: boot loaded
-2017-05-06 02:57:47: boot link
-2017-05-06 02:57:47: boot link /home/patrikx3/ramdisk/.p3x-ramdisk-persistence/content/.IntelliJIdea2017.3 to /home/patrikx3/.IntelliJIdea2017.3
-2017-05-06 02:57:47: boot link /home/patrikx3/ramdisk/.p3x-ramdisk-persistence/content/Projects to /home/patrikx3/Projects
-2017-05-06 02:57:47: boot link done
-2017-05-06 02:57:47: boot 0 minutes 10 seconds
+2018-05-06 02:57:37: boot loading
+2018-05-06 02:57:37: boot load /home/patrikx3/ramdisk-persistent/current to /home/patrikx3/ramdisk/.p3x-ramdik-persistence/content
+2018-05-06 02:57:47: boot loaded
+2018-05-06 02:57:47: boot link
+2018-05-06 02:57:47: boot link /home/patrikx3/ramdisk/.p3x-ramdisk-persistence/content/.IntelliJIdea2018.3 to /home/patrikx3/.IntelliJIdea2018.3
+2018-05-06 02:57:47: boot link /home/patrikx3/ramdisk/.p3x-ramdisk-persistence/content/Projects to /home/patrikx3/Projects
+2018-05-06 02:57:47: boot link done
+2018-05-06 02:57:47: boot 0 minutes 10 seconds
 
-2017-05-06 02:57:47: timer save
-2017-05-06 02:57:47: timer save, current to previous
-2017-05-06 02:57:47: timer save /home/patrikx3/ramdisk-persistent/current to /home/patrikx3/ramdisk-persistent/previous
-2017-05-06 02:57:50: timer saved
-2017-05-06 02:57:50: timer save, ramdisk to current
-2017-05-06 02:57:50: timer save /home/patrikx3/ramdisk/.p3x-ramdisk-persistence/content to /home/patrikx3/ramdisk-persistent/current
-2017-05-06 02:57:53: timer saved
-2017-05-06 02:57:53: timer save done
-2017-05-06 02:57:53: timer 0 minutes 6 seconds
+2018-05-06 02:57:47: timer save
+2018-05-06 02:57:47: timer save, current to previous
+2018-05-06 02:57:47: timer save /home/patrikx3/ramdisk-persistent/current to /home/patrikx3/ramdisk-persistent/previous
+2018-05-06 02:57:50: timer saved
+2018-05-06 02:57:50: timer save, ramdisk to current
+2018-05-06 02:57:50: timer save /home/patrikx3/ramdisk/.p3x-ramdisk-persistence/content to /home/patrikx3/ramdisk-persistent/current
+2018-05-06 02:57:53: timer saved
+2018-05-06 02:57:53: timer save done
+2018-05-06 02:57:53: timer 0 minutes 6 seconds
 ```
 
 ## LOG Update
 
 ```text
-2017-05-06 03:31:51
-2017-05-06 03:31:57
+2018-05-06 03:31:51
+2018-05-06 03:31:57
 0 minutes 6 seconds
 ```  
 
@@ -326,7 +326,7 @@ patrikx3@workstation ~/ramdisk-persistent/current/.p3x-ramdisk-link $ ll
 total 32
 drwxr-xr-x  8 patrikx3 patrikx3 4096 May  7 13:04 ./
 drwxr-xr-x  3 patrikx3 patrikx3 4096 May  7 13:02 ../
-drwxr-xr-x  4 patrikx3 patrikx3 4096 Apr 25 17:51 .IntelliJIdea2017.3/
+drwxr-xr-x  4 patrikx3 patrikx3 4096 Apr 25 17:51 .IntelliJIdea2018.3/
 patrikx3@workstation ~/ramdisk-persistent/current/.p3x-ramdisk-link $ 
 ```
 
@@ -334,7 +334,7 @@ patrikx3@workstation ~/ramdisk-persistent/current/.p3x-ramdisk-link $
 
 ---
 
-[**P3X-RAMDISK**](https://pages.corifeus.com/ramdisk) Build v2019.1.9-2 
+[**P3X-RAMDISK**](https://pages.corifeus.com/ramdisk) Build v2019.1.19-2 
 
 [![Like Corifeus @ Facebook](https://img.shields.io/badge/LIKE-Corifeus-3b5998.svg)](https://www.facebook.com/corifeus.software) [![Donate for Corifeus / P3X](https://img.shields.io/badge/Donate-Corifeus-003087.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=QZVM4V6HVZJW6)  [![Contact Corifeus / P3X](https://img.shields.io/badge/Contact-P3X-ff9900.svg)](https://www.patrikx3.com/en/front/contact) 
 
