@@ -11,7 +11,7 @@
 
 
  
-# 💾 RAM disk persistent with Systemd timer, service and suspend v2019.2.1-1  
+# 💾 RAM disk persistent with Systemd timer, service and suspend v2019.2.1-2  
 
   
 🙏 This is an open-source project. Star this repository, if you like it, or even donate to maintain the servers and the development. Thank you so much!
@@ -93,22 +93,7 @@ The result is that the development is many folds faster. No waiting at all.
 
 # Changelog
 
-* Since **v2019.2.1**
-  * The ramdisk works with multiple different users
-    * Migration
-      * `sudo p3x-ramdisk stop`
-      * Install the latest version since v2019.2,1
-      * `sudo p3x-ramdisk install $USER`
-      * `sudo p3x-ramdisk start $USER`
-      * What actually changed, is that every command has a parameter `<uid>` eg.
-        * `sudo p3x-ramdisk install $USER`
-        * `sudo p3x-ramdisk start $USER`
-        * `sudo p3x-ramdisk stop $USER`
-        * `sudo p3x-ramdisk link $USER`
-        * `sudo p3x-ramdisk load $USER`
-        * `sudo p3x-ramdisk save $USER`
-        * `sudo p3x-ramdisk status $USER`
-        * `sudo p3x-ramdisk watch $USER`
+* [Since **v2019.2.1**, BREAKING CHANGELOG](artifacts/readme/breaking-change.md#v201921)
 
 # Install
 
@@ -356,7 +341,7 @@ patrikx3@workstation ~/ramdisk-persistent/current/.p3x-ramdisk-link $
 
 ---
 
-[**P3X-RAMDISK**](https://pages.corifeus.com/ramdisk) Build v2019.2.1-1 
+[**P3X-RAMDISK**](https://pages.corifeus.com/ramdisk) Build v2019.2.1-2 
 
 [![Like Corifeus @ Facebook](https://img.shields.io/badge/LIKE-Corifeus-3b5998.svg)](https://www.facebook.com/corifeus.software) [![Donate for Corifeus / P3X](https://img.shields.io/badge/Donate-Corifeus-003087.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=QZVM4V6HVZJW6)  [![Contact Corifeus / P3X](https://img.shields.io/badge/Contact-P3X-ff9900.svg)](https://www.patrikx3.com/en/front/contact) 
 
