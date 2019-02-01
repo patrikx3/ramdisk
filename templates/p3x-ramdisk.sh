@@ -39,7 +39,7 @@ RAMDISK_LOCK=$RAMDISK_PERSISTENCE/ramdisk.lock
 
 
 SUSPEND_ROOT=/lib/systemd/system-sleep
-SUSPEND_SCRIPT=$SUSPEND_ROOT/p3x-ramdisk.sh
+SUSPEND_SCRIPT=$SUSPEND_ROOT/p3x-ramdisk-$P3X_UID.sh
 
 SYSTEMD=/etc/systemd/system
 
@@ -143,7 +143,7 @@ function stop() {
     systemctl disable p3x-ramdisk-$P3X_UID
     systemctl disable p3x-ramdisk-timer-$P3X_UID.timer
 
-    if [ -d $SUSPEND_SCRIPT ];
+    if [ -f $SUSPEND_SCRIPT ];
     then
         rm -rf $SUSPEND_SCRIPT
     fi

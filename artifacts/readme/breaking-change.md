@@ -7,6 +7,23 @@
 
 # Breaking change 
 
+## v2019.2.1
+* The ramdisk works with multiple different users
+* Migration
+  * `sudo p3x-ramdisk stop`
+  * Install the latest version
+  * `sudo p3x-ramdisk install $USER`
+  * `sudo p3x-ramdisk start $USER`
+  * What actually changed, is that every command has a parameter `<uid>` eg.
+    * `sudo p3x-ramdisk install $USER`
+    * `sudo p3x-ramdisk start $USER`
+    * `sudo p3x-ramdisk stop $USER`
+    * `sudo p3x-ramdisk link $USER`
+    * `sudo p3x-ramdisk load $USER`
+    * `sudo p3x-ramdisk save $USER`
+    * `sudo p3x-ramdisk status $USER`
+    * `sudo p3x-ramdisk watch $USER`
+
 ## v1.1
 This is only important if you have an older version (1.0.x-y) and/or you use linked folders (like IntelliJ).
 
@@ -62,7 +79,7 @@ Now you are safe.
 
 ---
 
-[**P3X-RAMDISK**](https://pages.corifeus.com/ramdisk) Build v2019.2.1-0 
+[**P3X-RAMDISK**](https://pages.corifeus.com/ramdisk) Build v2019.2.1-1 
 
 [![Like Corifeus @ Facebook](https://img.shields.io/badge/LIKE-Corifeus-3b5998.svg)](https://www.facebook.com/corifeus.software) [![Donate for Corifeus / P3X](https://img.shields.io/badge/Donate-Corifeus-003087.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=QZVM4V6HVZJW6)  [![Contact Corifeus / P3X](https://img.shields.io/badge/Contact-P3X-ff9900.svg)](https://www.patrikx3.com/en/front/contact) 
 
