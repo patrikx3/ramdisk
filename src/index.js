@@ -6,7 +6,10 @@ const _ = require('lodash');
 const clear = require('clear');
 const ms = require('ms');
 
-const settingsFile = `/etc/p3x-ramdisk.json`;
+const settingsFileFun = (opts) => {
+    const { uid } = opts
+    return `/etc/p3x-ramdisk-${uid}.json`;
+}
 
 const defaults = {
     ramdisk: {
@@ -29,46 +32,46 @@ const getGeneratedDir = (homedir = process.env.HOME) => {
     return path.resolve(`${homedir}/.p3x-ramdisk`)
 }
 
-const getSettings = () => {
-    const settings = require(settingsFile);
+const getSettings = (opts) => {
+    const settings = require(settingsFileFun(opts));
     settings.generatedDir = getGeneratedDir(settings.home);
     settings.program =  `${path.resolve(settings.generatedDir
     )}/p3x-ramdisk.sh`;
     return settings;
 }
 
-const defaultTerminal= async (command, doesRequireRoot = false)  => {
+const defaultTerminal= async (opts, command, doesRequireRoot = false)  => {
     if (doesRequireRoot ) {
         requireRoot();
     }
-    const settings = getSettings();
+    const settings = getSettings(opts);
     let commandExec = `${settings.program} ${command}`;
     await utils.childProcess.exec(commandExec, true)
 }
 
-const load = async() => {
-    await defaultTerminal('load')
+const load = async(opts) => {
+    await defaultTerminal(opts, 'load')
 }
 
-const link = async() => {
-    await defaultTerminal('link')
+const link = async(opts) => {
+    await defaultTerminal(opts, 'link')
 }
 
-const save = async() => {
-    await defaultTerminal('save')
+const save = async(opts) => {
+    await defaultTerminal(opts, 'save')
 }
 
-const status = async() => {
+const status = async(opts) => {
     requireRoot();
     let commandExec = `
-sudo service p3x-ramdisk status
-sudo systemctl status p3x-ramdisk-timer.timer
+sudo service p3x-ramdisk-${opts.uid} status
+sudo systemctl status p3x-ramdisk-timer-${opts.uid}.timer
 `;
     await utils.childProcess.exec(commandExec, true)
 }
 
-const watch = async(options) => {
-    const settings = getSettings();
+const watch = async(mainOpts, options) => {
+    const settings = getSettings(mainOpts);
     options.watch = Number(options.watch) || 1000;
     const watch = ms(options.watch, { long: true });
     const timer = ms(settings.timer * 1000 * 60, { long: true });
@@ -83,7 +86,7 @@ const watch = async(options) => {
             if (await mz.fs.exists(loadLogFile)) {
                 loadLog = await mz.fs.readFile(loadLogFile);
             } else {
-                loadLog = Promise.resolve('Load is not done.')
+                loadLog = 'Load is not done.'
             }
 
             const saveLogFile = `${settings.home}/${settings.persistent}/update-at-save.log`;
@@ -91,17 +94,15 @@ const watch = async(options) => {
             if (await mz.fs.exists(saveLogFile)) {
                 saveLog = await mz.fs.readFile(saveLogFile);
             } else {
-                saveLog = Promise.resolve('Save is not done.')
+                saveLog = 'Save is not done.'
             }
 
             const logFile = `${settings.home}/${settings.persistent}/ramdisk-persistent.log`;
             let log;
             if (await mz.fs.exists(logFile)) {
-                log = await   utils.childProcess.exec(`tail -n 5 ${logFile}`);
+                log = await utils.childProcess.exec(`tail -n 5 ${logFile}`);
             } else {
-                log = Promise.resolve({
-                    stdout: 'Log is not done.'
-                })
+                log = 'Log is not done.'
             }
             clear()
             console.log(`${df.stdout.trim()}
@@ -120,12 +121,12 @@ ${new Date().toLocaleString()} | Persistence ${timer} | Watch ${watch}`);
     })
 }
 
-const start = async() => {
-    await defaultTerminal('start', true)
+const start = async(opts) => {
+    await defaultTerminal(opts, 'start', true)
 }
 
-const stop = async() => {
-    await defaultTerminal('stop', true)
+const stop = async(opts) => {
+    await defaultTerminal(opts,'stop', true)
 }
 
 
@@ -149,7 +150,6 @@ const install = async (uid, options) => {
 
     // sciripts - is given
     const userid = require('userid');
-
 
     const homedir = (await utils.childProcess.exec(`sudo -H -u ${uid} -i eval 'echo $HOME'`)).stdout.trim();
 
@@ -177,14 +177,23 @@ const install = async (uid, options) => {
 
     _.templateSettings.interpolate = /{{([\s\S]+?)}}/g;
 
-    await utils.fs.ensureFile(settingsFile, JSON.stringify(generateOptions, null, 4), true )
+    await utils.fs.ensureFile(settingsFileFun(generateOptions), JSON.stringify(generateOptions, null, 4), true )
 
     await files.forEachAsync(async (file) => {
         const generatedFile = path.basename(file, '.hbs');
         const buffer = await mz.fs.readFile(`${origin}/${file}`);
         const string = buffer.toString();
         const generatedString = _.template(string)(generateOptions);
-        await utils.fs.ensureFile(`${generatedDir}/${generatedFile}`, generatedString, true);
+
+        let useredFile =  generatedFile
+        for(let type of ['.service', '.timer']) {
+            if (useredFile.endsWith(type)) {
+                useredFile = useredFile.substring(0, useredFile.length - type.length)
+                useredFile += '-' + generateOptions.uid + type
+            }
+        }
+
+        await utils.fs.ensureFile(`${generatedDir}/${useredFile}`, generatedString, true);
     })
 
 

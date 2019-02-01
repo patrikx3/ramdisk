@@ -11,7 +11,7 @@
 
 
  
-# 💾 RAM disk persistent with Systemd timer, service and suspend v2019.1.29-2  
+# 💾 RAM disk persistent with Systemd timer, service and suspend v2019.2.1-0  
 
   
 🙏 This is an open-source project. Star this repository, if you like it, or even donate to maintain the servers and the development. Thank you so much!
@@ -30,7 +30,7 @@ All my domains ([patrikx3.com](https://patrikx3.com) and [corifeus.com](https://
    
 ### Built on Node 
 ``` 
-v11.8.0
+v11.9.0
 ```   
    
 The ```async``` and ```await``` keywords are required.
@@ -72,6 +72,9 @@ The Intellij IDEA 12 now works as a lightsaber sword, as a weapon of a Jedi Knig
 
 * Requires tmpfs, bash, fstab, rsync, memory :)
   * Usually, all requirements of every Unix flavor are installed by default
+  * If you can't install it, you probably need to install the `build-essential`
+    * See
+      * https://nodejs.org/en/download/package-manager/
   
 * SystemD
   * Service
@@ -87,6 +90,25 @@ I think my ramdisk is faster. :) Ciao!!!
 # Use case
 Speed up IntelliJ and development Node. (Tons of files.)  
 The result is that the development is many folds faster. No waiting at all.
+
+# Changelog
+
+* Since **v2019.2.1**
+  * The ramdisk works with different users
+    * Migration
+      * `sudo p3x-ramdisk stop`
+      * Install the latest version
+      * `sudo p3x-ramdisk install $USER`
+      * `sudo p3x-ramdisk start $USER`
+      * What actually changed, is that every command has a parameter `<uid>` eg.
+        * `sudo p3x-ramdisk install $USER`
+        * `sudo p3x-ramdisk start $USER`
+        * `sudo p3x-ramdisk stop $USER`
+        * `sudo p3x-ramdisk link $USER`
+        * `sudo p3x-ramdisk load $USER`
+        * `sudo p3x-ramdisk save $USER`
+        * `sudo p3x-ramdisk status $USER`
+        * `sudo p3x-ramdisk watch $USER`
 
 # Install
 
@@ -145,21 +167,21 @@ sudo mount -a
 df -h
 
 # if there is an error, you can 
-sudo p3x-ramdisk stop
+sudo p3x-ramdisk stop $USER
 
 # if all good
 # STARTUP THE RAMDISK PERSISTENT
-sudo p3x-ramdisk start
+sudo p3x-ramdisk start $USER
 
 # you can work like here (this a symlink, so you can't accidentally delete
 # so next time boot, it will re-create the symlink ...)
 # /home/$USER/ramdisk/p3x-persistence
 
 # SOME DEBUG
-p3x-ramdisk watch 
+p3x-ramdisk watch $USER
 
 # to trigger a savs
-p3x-ramdisk save
+p3x-ramdisk save $USER
 
 # you don't need usually to save
 # the default is 20 minutes
@@ -169,7 +191,7 @@ p3x-ramdisk save
 # to stop the services
 # removes sync, so the ramdisk files will be unavailable,
 # only be in /home/username/ramdisk-persistent/current
-sudo p3x-ramdisk stop 
+sudo p3x-ramdisk stop $USER 
 
 # your duplicate copies are
 ls -all /home/$USER/ramdisk-persistent/current/
@@ -189,8 +211,8 @@ ls -all /home/$USER/ramdisk-persistent/previous/
 ```bash
 ### //LINKING:START
 # LINKING - IS NOT REQUIRED, but is good as a sword :)
-p3x-ramdisk save
-sudo p3x-ramdisk stop
+p3x-ramdisk save $USER
+sudo p3x-ramdisk stop $USER
 mkdir -p /home/$USER/ramdisk-persistent/current/.p3x-ramdisk-link
 
 cp -avr /home/$USER/.IntelliJIdea2018.3 /home/$USER/ramdisk-persistent/current/.p3x-ramdisk-link
@@ -202,7 +224,7 @@ mv /home/$USER/.IntelliJIdea2018.3 /home/username/backup/
 # need to delete the originals, since they become symlinks
 rm -rf /home/$USER/.IntelliJIdea2018.3
 
-sudo p3x-ramdisk start
+sudo p3x-ramdisk start $USER
 ### //LINKING:END
 ```
 
@@ -250,7 +272,7 @@ df -h
 --------------------------
 3) if everything is ok, start the persistent ramdisk
 
-sudo p3x-ramdisk start
+sudo p3x-ramdisk start $USER
 
 patrikx3@laptop:~/ramdisk/.p3x-ramdik-persistence/content/.p3x-ramdisk-link/Projects/patrikx3/ramdisk$ 
 ```
@@ -258,7 +280,7 @@ patrikx3@laptop:~/ramdisk/.p3x-ramdik-persistence/content/.p3x-ramdisk-link/Proj
 ## Watching the RAM disk
 
 ```bash
-p3x-ramdisk watch
+p3x-ramdisk watch $USER
 ```
 
 ```text
@@ -334,7 +356,7 @@ patrikx3@workstation ~/ramdisk-persistent/current/.p3x-ramdisk-link $
 
 ---
 
-[**P3X-RAMDISK**](https://pages.corifeus.com/ramdisk) Build v2019.1.29-2 
+[**P3X-RAMDISK**](https://pages.corifeus.com/ramdisk) Build v2019.2.1-0 
 
 [![Like Corifeus @ Facebook](https://img.shields.io/badge/LIKE-Corifeus-3b5998.svg)](https://www.facebook.com/corifeus.software) [![Donate for Corifeus / P3X](https://img.shields.io/badge/Donate-Corifeus-003087.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=QZVM4V6HVZJW6)  [![Contact Corifeus / P3X](https://img.shields.io/badge/Contact-P3X-ff9900.svg)](https://www.patrikx3.com/en/front/contact) 
 

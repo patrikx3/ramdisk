@@ -2,15 +2,17 @@ const commander = require('commander');
 
 // install
 commander
-    .command('link')
+    .command('link <uid>')
     .description(`
 Link from the ramdisk to the home    
 `)
 //    .option('-d, --dry', 'Do not actually remove packages, just show what it does')
-    .action(async function (options) {
+    .action(async function (uid, options) {
         const link = require('../index').link;
         try {
-            await link();
+            await link({
+                uid: uid
+            });
         } catch(e) {
             console.error(e.message);
             process.exit(1);

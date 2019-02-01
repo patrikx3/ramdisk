@@ -1,6 +1,6 @@
 [Unit]
-Description=P3X ramdisk persistent timer
-After=p3x-ramdisk.target
+Description=P3X ramdisk {{ uid }} persistent timer
+After=p3x-ramdisk-{{ uid }}.target
 
 [Service]
 Type=oneshot

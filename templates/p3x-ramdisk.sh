@@ -83,9 +83,9 @@ function install() {
     log "install"
 
     log "copy"
-    cp $DIR/p3x-ramdisk-timer.service $SYSTEMD
-    cp $DIR/p3x-ramdisk-timer.timer $SYSTEMD
-    cp $DIR/p3x-ramdisk.service $SYSTEMD
+    cp $DIR/p3x-ramdisk-timer-$P3X_UID.service $SYSTEMD
+    cp $DIR/p3x-ramdisk-timer-$P3X_UID.timer $SYSTEMD
+    cp $DIR/p3x-ramdisk-$P3X_UID.service $SYSTEMD
 
     log suspend
     mkdir -p $SUSPEND_ROOT
@@ -126,10 +126,10 @@ function start() {
     install
 
     log "start"
-    systemctl enable p3x-ramdisk
-    systemctl enable p3x-ramdisk-timer.timer
-    systemctl start p3x-ramdisk
-    systemctl start p3x-ramdisk-timer.timer
+    systemctl enable p3x-ramdisk-$P3X_UID
+    systemctl enable p3x-ramdisk-timer-$P3X_UID.timer
+    systemctl start p3x-ramdisk-$P3X_UID
+    systemctl start p3x-ramdisk-timer-$P3X_UID.timer
 }
 
 function stop() {
@@ -138,29 +138,29 @@ function stop() {
     printf "\n" >> $PERSISTENCE_LOG
     log "stop"
 
-    systemctl stop p3x-ramdisk-timer.timer
-    systemctl stop p3x-ramdisk
-    systemctl disable p3x-ramdisk
-    systemctl disable p3x-ramdisk-timer.timer
+    systemctl stop p3x-ramdisk-timer-$P3X_UID.timer
+    systemctl stop p3x-ramdisk-$P3X_UID
+    systemctl disable p3x-ramdisk-$P3X_UID
+    systemctl disable p3x-ramdisk-timer-$P3X_UID.timer
 
     if [ -d $SUSPEND_SCRIPT ];
     then
         rm -rf $SUSPEND_SCRIPT
     fi
 
-    if [ -f $SYSTEMD/p3x-ramdisk.service ];
+    if [ -f $SYSTEMD/p3x-ramdisk-$P3X_UID.service ];
     then
-        rm $SYSTEMD/p3x-ramdisk.service
+        rm $SYSTEMD/p3x-ramdisk-$P3X_UID.service
     fi
 
-    if [ -f $SYSTEMD/p3x-ramdisk-timer.timer ];
+    if [ -f $SYSTEMD/p3x-ramdisk-timer-$P3X_UID.timer ];
     then
-        rm $SYSTEMD/p3x-ramdisk-timer.timer
+        rm $SYSTEMD/p3x-ramdisk-timer-$P3X_UID.timer
     fi
 
-    if [ -f $SYSTEMD/p3x-ramdisk-timer.service ];
+    if [ -f $SYSTEMD/p3x-ramdisk-timer-$P3X_UID.service ];
     then
-        rm $SYSTEMD/p3x-ramdisk-timer.service
+        rm $SYSTEMD/p3x-ramdisk-timer-$P3X_UID.service
     fi
 
     if [ -f $RAMDISK_LOCK ];
