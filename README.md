@@ -11,7 +11,7 @@
 
 
  
-# 💾 RAM disk persistent with Systemd timer, service and suspend v2019.2.15-2  
+# 💾 Linux RAM disk persistent with Systemd timer, service and suspend v2019.2.15-2  
 
   
 🙏 This is an open-source project. Star this repository, if you like it, or even donate to maintain the servers and the development. Thank you so much!
