@@ -1,6 +1,6 @@
 [//]: #@corifeus-header
 
-# 💾 RAM disk persistent with Systemd timer, service and suspend
+# 💾 Linux RAM disk persistent with Systemd timer, service and suspend
 
                         
 [//]: #@corifeus-header:end
