@@ -51,6 +51,8 @@ https://nodejs.org/en/download/package-manager/
 As of now, NodeJs 12 is not working, because of the upstream `userid` NPM  package is not supported:  
 https://github.com/jandre/node-userid/issues/20  
 
+If this package is will not be fixed by the time NodeJs 12 is stable, I will write it myself as `p3x-userid`.
+
 
 # Breaking change 
 
