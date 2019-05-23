@@ -1,6 +1,6 @@
 [//]: #@corifeus-header
   
-[![NPM](https://nodei.co/npm/p3x-ramdisk.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/p3x-ramdisk/)
+[![NPM](https://nodei.co/npm/p3x-ramdisk.png?downloads=true&downloadRank=true)](https://www.npmjs.com/package/p3x-ramdisk/)
 
   
 
@@ -46,6 +46,11 @@ https://nodejs.org/en/download/package-manager/
 
                         
 [//]: #@corifeus-header:end
+
+# WARNING
+As of now, NodeJs 12 is not working, because of the upstream `userid` NPM  package is not supported:  
+https://github.com/jandre/node-userid/issues/20  
+
 
 # Breaking change 
 

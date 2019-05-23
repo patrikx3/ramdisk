@@ -1,7 +1,10 @@
 language: node_js
 sudo: required
 node_js:
-- node
+#- node
+- 8
+- 10
+- 11
 env:
   matrix:
   - CXX=g++-4.8
