@@ -149,7 +149,7 @@ const install = async (uid, options) => {
     // home - default /home/uid/
 
     // sciripts - is given
-    const userid = require('userid');
+    const userid = require('./userid');
 
     const homedir = (await utils.childProcess.exec(`sudo -H -u ${uid} -i eval 'echo $HOME'`)).stdout.trim();
 
