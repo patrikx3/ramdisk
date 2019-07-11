@@ -6,14 +6,14 @@ commander
     .description(`
 Start a p3x-ramdisk    
 `)
-//    .option('-d, --dry', 'Do not actually remove packages, just show what it does')
+    //    .option('-d, --dry', 'Do not actually remove packages, just show what it does')
     .action(async function (uid, options) {
         const start = require('../index').start;
         try {
             await start({
                 uid: uid
             });
-        } catch(e) {
+        } catch (e) {
             console.error(e.message);
             process.exit(1);
         }

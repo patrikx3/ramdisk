@@ -10,8 +10,8 @@ Status of p3x-ramdisk
         const status = require('../index').status;
 
         try {
-            await status({ uid: uid }, options);
-        } catch(e) {
+            await status({uid: uid}, options);
+        } catch (e) {
             console.error(e.message);
             process.exit(1);
         }

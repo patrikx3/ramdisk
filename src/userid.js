@@ -1,4 +1,4 @@
-const { execSync } = require('child_process')
+const {execSync} = require('child_process')
 
 module.exports.uid = (username) => {
     const output = execSync(`id -u ${username}`).toString().trim()

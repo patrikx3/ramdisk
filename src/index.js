@@ -7,7 +7,7 @@ const clear = require('clear');
 const ms = require('ms');
 
 const settingsFileFun = (opts) => {
-    const { uid } = opts
+    const {uid} = opts
     return `/etc/p3x-ramdisk-${uid}.json`;
 }
 
@@ -35,13 +35,13 @@ const getGeneratedDir = (homedir = process.env.HOME) => {
 const getSettings = (opts) => {
     const settings = require(settingsFileFun(opts));
     settings.generatedDir = getGeneratedDir(settings.home);
-    settings.program =  `${path.resolve(settings.generatedDir
+    settings.program = `${path.resolve(settings.generatedDir
     )}/p3x-ramdisk.sh`;
     return settings;
 }
 
-const defaultTerminal= async (opts, command, doesRequireRoot = false)  => {
-    if (doesRequireRoot ) {
+const defaultTerminal = async (opts, command, doesRequireRoot = false) => {
+    if (doesRequireRoot) {
         requireRoot();
     }
     const settings = getSettings(opts);
@@ -49,19 +49,19 @@ const defaultTerminal= async (opts, command, doesRequireRoot = false)  => {
     await utils.childProcess.exec(commandExec, true)
 }
 
-const load = async(opts) => {
+const load = async (opts) => {
     await defaultTerminal(opts, 'load')
 }
 
-const link = async(opts) => {
+const link = async (opts) => {
     await defaultTerminal(opts, 'link')
 }
 
-const save = async(opts) => {
+const save = async (opts) => {
     await defaultTerminal(opts, 'save')
 }
 
-const status = async(opts) => {
+const status = async (opts) => {
     requireRoot();
     let commandExec = `
 sudo service p3x-ramdisk-${opts.uid} status
@@ -70,11 +70,11 @@ sudo systemctl status p3x-ramdisk-timer-${opts.uid}.timer
     await utils.childProcess.exec(commandExec, true)
 }
 
-const watch = async(mainOpts, options) => {
+const watch = async (mainOpts, options) => {
     const settings = getSettings(mainOpts);
     options.watch = Number(options.watch) || 1000;
-    const watch = ms(options.watch, { long: true });
-    const timer = ms(settings.timer * 1000 * 60, { long: true });
+    const watch = ms(options.watch, {long: true});
+    const timer = ms(settings.timer * 1000 * 60, {long: true});
     return new Promise(async () => {
         const show = async () => {
 
@@ -121,12 +121,12 @@ ${new Date().toLocaleString()} | Persistence ${timer} | Watch ${watch}`);
     })
 }
 
-const start = async(opts) => {
+const start = async (opts) => {
     await defaultTerminal(opts, 'start', true)
 }
 
-const stop = async(opts) => {
-    await defaultTerminal(opts,'stop', true)
+const stop = async (opts) => {
+    await defaultTerminal(opts, 'stop', true)
 }
 
 
@@ -157,14 +157,14 @@ const install = async (uid, options) => {
 
     const generateOptions = {
         rampath: options.rampath || 'ramdisk',
-        persistent : options.persistent || 'ramdisk-persistent',
-        uid : uid,
+        persistent: options.persistent || 'ramdisk-persistent',
+        uid: uid,
         uidNumber: userid.uid(uid),
         gidNumber: userid.gid(uid),
-        gid : options.gid || uid,
-        timer : options.timer || defaults.timer.save,
-        size : options.size || defaults.ramdisk.size,
-        home : homedir,
+        gid: options.gid || uid,
+        timer: options.timer || defaults.timer.save,
+        size: options.size || defaults.ramdisk.size,
+        home: homedir,
     }
 
     const generatedDir = getGeneratedDir(homedir)
@@ -177,7 +177,7 @@ const install = async (uid, options) => {
 
     _.templateSettings.interpolate = /{{([\s\S]+?)}}/g;
 
-    await utils.fs.ensureFile(settingsFileFun(generateOptions), JSON.stringify(generateOptions, null, 4), true )
+    await utils.fs.ensureFile(settingsFileFun(generateOptions), JSON.stringify(generateOptions, null, 4), true)
 
     await files.forEachAsync(async (file) => {
         const generatedFile = path.basename(file, '.hbs');
@@ -185,8 +185,8 @@ const install = async (uid, options) => {
         const string = buffer.toString();
         const generatedString = _.template(string)(generateOptions);
 
-        let useredFile =  generatedFile
-        for(let type of ['.service', '.timer']) {
+        let useredFile = generatedFile
+        for (let type of ['.service', '.timer']) {
             if (useredFile.endsWith(type)) {
                 useredFile = useredFile.substring(0, useredFile.length - type.length)
                 useredFile += '-' + generateOptions.uid + type
@@ -239,5 +239,5 @@ module.exports.watch = watch;
 module.exports.link = link;
 module.exports.status = status;
 
-module.exports.requireRoot  = requireRoot;
+module.exports.requireRoot = requireRoot;
 module.exports.defaults = defaults;
