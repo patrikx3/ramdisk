@@ -4,8 +4,8 @@ const ramdisk = require('../index');
 // install
 commander
     .command('install <uid>')
-    .option('-r, --rampath [path]', 'The path of the ram disk, default /home/$USER/ramdisk')
-    .option('-p, --persistent [path]', 'The path of the ram persistent, default /home/$USER/ramdisk-persistent')
+    .option('-r, --rampath [path]', 'The path of the ram disk, default /home/{{USER}}/ramdisk')
+    .option('-p, --persistent [path]', 'The path of the ram persistent, default /home/{{USER}}/ramdisk-persistent')
     //    .option('-u, --uid <type>', 'The username, it you omit it is the current user')
     .option('-g, --gid [group]', 'The gid, it you omit it is the current user')
     .option('-t, --timer [minutes]', 'The timer in minutes, minimum about 10 minutes, Default is 20 minutes, the best')

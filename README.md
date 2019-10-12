@@ -11,7 +11,7 @@
 
 
  
-# 💾 Linux RAM disk persistent with Systemd timer, service and suspend v2019.10.153  
+# 💾 Linux RAM disk persistent with Systemd timer, service and suspend v2019.10.154  
 
   
 
@@ -110,8 +110,8 @@ Install a p3x-ramdisk
   Options:
 
     -h, --help               output usage information
-    -r, --rampath [path]     The path of the ram disk, default /home/$USER/ramdisk
-    -p, --persistent [path]  The path of the ram persistent, default /home/$USER/ramdisk-persistent
+    -r, --rampath [path]     The path of the ram disk, default /home/{{USER}}/ramdisk
+    -p, --persistent [path]  The path of the ram persistent, default /home/{{USER}}/ramdisk-persistent
     -g, --gid [group]        The gid, it you omit it is the current user
     -t, --timer [minutes]    The timer in minutes, minimum about 10 minutes, Default is 20 minutes, the best
     -s, --size [megabytes]   Ramdisk in size of megabytes, default is 4096 megabytes
@@ -137,31 +137,31 @@ sudo npm install -g p3x-ramdisk --unsafe-perm=true --allow-root
 
 # install
 # if you need less/more memory, add -s 1024 or even more, 10GB is good :)
-sudo p3x-ramdisk install $USER    
+sudo p3x-ramdisk install {{USER}}    
 
 # Get the output, add to /etc/fstab
-echo "tmpfs   /home/patrikx3/ramdisk tmpfs   gid=10000,uid=10000,size=4096M   0 0" | sudo tee -a /etc/fstab
+echo "tmpfs   /home/{{USER}}/ramdisk tmpfs   gid=10000,uid=10000,size=4096M   0 0" | sudo tee -a /etc/fstab
 sudo mount -a
 # you should verify the ramdisk is existing now, you might have to reboot
 # on linux it can show your settings, like below:
 df -h
 
 # if there is an error, you can 
-sudo p3x-ramdisk stop $USER
+sudo p3x-ramdisk stop {{USER}}
 
 # if all good
 # STARTUP THE RAMDISK PERSISTENT
-sudo p3x-ramdisk start $USER
+sudo p3x-ramdisk start {{USER}}
 
 # you can work like here (this a symlink, so you can't accidentally delete
 # so next time boot, it will re-create the symlink ...)
-# /home/$USER/ramdisk/p3x-persistence
+# /home/{{USER}}/ramdisk/p3x-persistence
 
 # SOME DEBUG
-p3x-ramdisk watch $USER
+p3x-ramdisk watch {{USER}}
 
 # to trigger a savs
-p3x-ramdisk save $USER
+p3x-ramdisk save {{USER}}
 
 # you don't need usually to save
 # the default is 20 minutes
@@ -171,17 +171,17 @@ p3x-ramdisk save $USER
 # to stop the services
 # removes sync, so the ramdisk files will be unavailable,
 # only be in /home/username/ramdisk-persistent/current
-sudo p3x-ramdisk stop $USER 
+sudo p3x-ramdisk stop {{USER}} 
 
 # your duplicate copies are
-ls -all /home/$USER/ramdisk-persistent/current/
-ls -all /home/$USER/ramdisk-persistent/previous/
+ls -all /home/{{USER}}/ramdisk-persistent/current/
+ls -all /home/{{USER}}/ramdisk-persistent/previous/
 
 # you are done
 # the default use case is to speed up working with IntelliJ and my projects to ramdisk
 # if you just want persistent folder and that's all
 # there is a special folder, .p3x-ramdisk-link
-# everything there is linked into /home/$USER
+# everything there is linked into /home/{{USER}}
 # if there is nothing in .p3x-ramdisk-link
 # no linking is. to test it, you might not need it.
 ```
@@ -191,22 +191,22 @@ ls -all /home/$USER/ramdisk-persistent/previous/
 ```bash
 ### //LINKING:START
 # LINKING - IS NOT REQUIRED, but is good as a sword :)
-p3x-ramdisk save $USER
-sudo p3x-ramdisk stop $USER
-mkdir -p /home/$USER/ramdisk-persistent/current/.p3x-ramdisk-link
+p3x-ramdisk save {{USER}}
+sudo p3x-ramdisk stop {{USER}}
+mkdir -p /home/{{USER}}/ramdisk-persistent/current/.p3x-ramdisk-link
 
-cp -avr /home/$USER/.IntelliJIdea2018.3 /home/$USER/ramdisk-persistent/current/.p3x-ramdisk-link
+cp -avr /home/{{USER}}/.IntelliJIdea2018.3 /home/{{USER}}/ramdisk-persistent/current/.p3x-ramdisk-link
 
 # backup
-mkdir -p /home/$USER/backup
-mv /home/$USER/.IntelliJIdea2018.3 /home/$USER/backup/ 
+mkdir -p /home/{{USER}}/backup
+mv /home/{{USER}}/.IntelliJIdea2018.3 /home/{{USER}}/backup/ 
 
 # need to delete the originals, since they become symlinks
-rm -rf /home/$USER/.IntelliJIdea2018.3
+rm -rf /home/{{USER}}/.IntelliJIdea2018.3
 
-ln -s  /home/$USER/ramdisk-persistent/current/.p3x-ramdisk-link/.IntelliJIdea2018.3 /home/$USER/.IntelliJIdea2018.3
+ln -s  /home/{{USER}}/ramdisk-persistent/current/.p3x-ramdisk-link/.IntelliJIdea2018.3 /home/{{USER}}/.IntelliJIdea2018.3
 
-sudo p3x-ramdisk start $USER
+sudo p3x-ramdisk start {{USER}}
 ### //LINKING:END
 ```
 
@@ -254,7 +254,7 @@ df -h
 --------------------------
 3) if everything is ok, start the persistent ramdisk
 
-sudo p3x-ramdisk start $USER
+sudo p3x-ramdisk start {{USER}}
 
 patrikx3@laptop:~/ramdisk/.p3x-ramdik-persistence/content/.p3x-ramdisk-link/Projects/patrikx3/ramdisk$ 
 ```
@@ -262,7 +262,7 @@ patrikx3@laptop:~/ramdisk/.p3x-ramdik-persistence/content/.p3x-ramdisk-link/Proj
 ## Watching the RAM disk
 
 ```bash
-p3x-ramdisk watch $USER
+p3x-ramdisk watch {{USER}}
 ```
 
 ```text
@@ -349,7 +349,7 @@ All my domains ([patrikx3.com](https://patrikx3.com) and [corifeus.com](https://
 
 ---
   
-[**P3X-RAMDISK**](https://pages.corifeus.com/ramdisk) Build v2019.10.153 
+[**P3X-RAMDISK**](https://pages.corifeus.com/ramdisk) Build v2019.10.154 
 
 [![Donate for Corifeus / P3X](https://img.shields.io/badge/Donate-Corifeus-003087.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=QZVM4V6HVZJW6)  [![Contact Corifeus / P3X](https://img.shields.io/badge/Contact-P3X-ff9900.svg)](https://www.patrikx3.com/en/front/contact) [![Like Corifeus @ Facebook](https://img.shields.io/badge/LIKE-Corifeus-3b5998.svg)](https://www.facebook.com/corifeus.software) 
 
