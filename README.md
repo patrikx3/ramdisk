@@ -11,24 +11,24 @@
 
 
 
-# 💾 Linux RAM disk persistent with Systemd timer, service and suspend v2020.4.148
+# 💾 Linux RAM disk persistent with Systemd timer, service and suspend v2020.4.151
 
 
 
 **Bugs are evident™ - MATRIX️**
     
 
-### Node Version Requirement
+### NodeJs LTS Version Requirement
 ```
 >=12.13.0
 ```
 
-### Built on Node
+### Built on NodeJs
 ```
-v12.16.2
+v12.16.3
 ```
 
-The ```async``` and ```await``` keywords are required.
+The ```async``` and ```await``` keywords are required. Only the latest LTS variant is supported.
 
 Install NodeJs:
 https://nodejs.org/en/download/package-manager/
@@ -349,7 +349,7 @@ All my domains ([patrikx3.com](https://patrikx3.com) and [corifeus.com](https://
 
 ---
 
-[**P3X-RAMDISK**](https://pages.corifeus.com/ramdisk) Build v2020.4.148
+[**P3X-RAMDISK**](https://corifeus.com/ramdisk) Build v2020.4.151
 
 [![Donate for Corifeus / P3X](https://img.shields.io/badge/Donate-Corifeus-003087.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=QZVM4V6HVZJW6)  [![Contact Corifeus / P3X](https://img.shields.io/badge/Contact-P3X-ff9900.svg)](https://www.patrikx3.com/en/front/contact) [![Like Corifeus @ Facebook](https://img.shields.io/badge/LIKE-Corifeus-3b5998.svg)](https://www.facebook.com/corifeus.software)
 

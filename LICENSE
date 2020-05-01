@@ -1,9 +1,9 @@
 
-@license p3x-ramdisk v2020.4.148
+@license p3x-ramdisk v2020.4.151
   
 💾 Linux RAM disk persistent with Systemd timer, service and suspend
 
-https://pages.corifeus.com/ramdisk
+https://corifeus.com/ramdisk
 
 Copyright (c) 2020 Patrik Laszlo / P3X / Corifeus and contributors.
 
