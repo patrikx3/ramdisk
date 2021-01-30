@@ -1,8 +1,8 @@
-const commander = require('commander');
+const { program } = require('commander');
 const ramdisk = require('../index');
 
 // install
-commander
+program
     .command('install <uid>')
     .option('-r, --rampath [path]', 'The path of the ram disk, default /home/{{USER}}/ramdisk')
     .option('-p, --persistent [path]', 'The path of the ram persistent, default /home/{{USER}}/ramdisk-persistent')
@@ -12,7 +12,7 @@ commander
     .option('-s, --size [megabytes]', `Ramdisk in size of megabytes, default is ${ramdisk.defaults.ramdisk.size}  megabytes`)
     //    .option('-h, --home [type]', 'Home path, defaults to /home/uid')
     .description(`
-Install a p3x-ramdisk    
+Install a p3x-ramdisk
 `)
     //    .option('-d, --dry', 'Do not actually remove packages, just show what it does')
     .action(async function (uid, options) {

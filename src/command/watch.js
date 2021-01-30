@@ -1,10 +1,10 @@
-const commander = require('commander');
+const { program } = require('commander');
 
 // install
-commander
+program
     .command('watch <uid>')
     .description(`
-Watch the p3x-ramdisk    
+Watch the p3x-ramdisk
 `)
     .option('-w, --watch [milliseconds]', 'The time for watching, default is 1000 milliseconds')
     //    .option('-d, --dry', 'Do not actually remove packages, just show what it does')

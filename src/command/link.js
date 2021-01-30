@@ -1,10 +1,10 @@
-const commander = require('commander');
+const { program } = require('commander');
 
 // install
-commander
+program
     .command('link <uid>')
     .description(`
-Link from the ramdisk to the home    
+Link from the ramdisk to the home
 `)
     //    .option('-d, --dry', 'Do not actually remove packages, just show what it does')
     .action(async function (uid, options) {

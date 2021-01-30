@@ -1,10 +1,10 @@
-const commander = require('commander');
+const { program } = require('commander');
 
 // install
-commander
+program
     .command('start <uid>')
     .description(`
-Start a p3x-ramdisk    
+Start a p3x-ramdisk
 `)
     //    .option('-d, --dry', 'Do not actually remove packages, just show what it does')
     .action(async function (uid, options) {

@@ -1,10 +1,10 @@
-const commander = require('commander');
+const { program } = require('commander');
 
 // install
-commander
+program
     .command('status <uid>')
     .description(`
-Status of p3x-ramdisk    
+Status of p3x-ramdisk
 `)
     .action(async function (uid, options) {
         const status = require('../index').status;
