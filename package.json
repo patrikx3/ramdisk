@@ -50,6 +50,6 @@
         "node": ">=12.13.0"
     },
     "devDependencies": {
-        "corifeus-builder": "^2021.10.169"
+        "corifeus-builder": "^2021.10.176"
     }
 }
