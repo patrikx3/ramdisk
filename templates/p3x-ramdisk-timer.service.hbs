@@ -8,6 +8,7 @@ ExecStart={{ script }}/p3x-ramdisk.sh timer save
 TimeoutStopSec=infinity
 TimeoutStartSec=infinity
 TimeoutSec=infinity
+User={{ uid }}
 
 [Install]
 WantedBy=multi-user.target

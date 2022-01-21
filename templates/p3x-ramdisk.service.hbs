@@ -9,6 +9,7 @@ ExecStop={{ script }}/p3x-ramdisk.sh shutdown save
 TimeoutStopSec=infinity
 TimeoutStartSec=infinity
 TimeoutSec=infinity
+User={{ uid }}
 
 [Install]
 WantedBy=multi-user.target

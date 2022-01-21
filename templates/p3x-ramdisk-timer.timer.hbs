@@ -6,6 +6,7 @@ After=p3x-ramdisk-{{ uid }}.target
 OnCalendar=*:0/{{ timer }}
 OnBootSec=0min
 #OnUnitActiveSec={{ timer }}min
+User={{ uid }}
 
 [Install]
 WantedBy=timers.target
