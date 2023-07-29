@@ -13,4 +13,4 @@
 *.log
 /corifeus-boot.json
 /.github
-
+/.vscode
