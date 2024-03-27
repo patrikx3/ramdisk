@@ -6,7 +6,7 @@
 
 
 
-# 💾 Linux RAM disk persistent with Systemd timer, service and suspend v2024.4.114
+# 💾 Linux RAM disk persistent with Systemd timer, service and suspend v2024.4.117
 
 
 
@@ -20,7 +20,7 @@
 ### Built on NodeJs version
 
 ```txt
-v20.11.1
+v20.12.0
 ```
 
 
@@ -345,9 +345,9 @@ All my domains ([patrikx3.com](https://patrikx3.com) and [corifeus.com](https://
 
 ---
 
-[**P3X-RAMDISK**](https://corifeus.com/ramdisk) Build v2024.4.114
+[**P3X-RAMDISK**](https://corifeus.com/ramdisk) Build v2024.4.117
 
-[![Donate for Corifeus / P3X](https://img.shields.io/badge/Donate-Corifeus-003087.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=QZVM4V6HVZJW6)  [![Contact Corifeus / P3X](https://img.shields.io/badge/Contact-P3X-ff9900.svg)](https://www.patrikx3.com/en/front/contact) [![Like Corifeus @ Facebook](https://img.shields.io/badge/LIKE-Corifeus-3b5998.svg)](https://www.facebook.com/corifeus.software)
+ [![NPM](https://img.shields.io/npm/v/p3x-ramdisk.svg)](https://www.npmjs.com/package/p3x-ramdisk)  [![Donate for Corifeus / P3X](https://img.shields.io/badge/Donate-Corifeus-003087.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=QZVM4V6HVZJW6)  [![Contact Corifeus / P3X](https://img.shields.io/badge/Contact-P3X-ff9900.svg)](https://www.patrikx3.com/en/front/contact) [![Like Corifeus @ Facebook](https://img.shields.io/badge/LIKE-Corifeus-3b5998.svg)](https://www.facebook.com/corifeus.software)
 
 
 
