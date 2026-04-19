@@ -14,3 +14,9 @@
 /corifeus-boot.json
 /.github
 /.vscode
+secure/
+agents/
+.claude/
+.codex/
+CLAUDE.md
+AGENTS.md
